@@ -3,6 +3,7 @@
 // Definitions by: Marvin Hagemeister <https://github.com/marvinhagemeister>
 //                 Christopher Deutsch <https://github.com/cdeutsch>
 //                 jwbay <https://github.com/jwbay>
+//                 Josh Goldberg <https://github.com/joshuakgoldberg>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
