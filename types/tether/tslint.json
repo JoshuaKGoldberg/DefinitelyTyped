@@ -5,6 +5,7 @@
         "dt-header": false,
         "interface-name": false,
         "member-access": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-var-keyword": false,
         "object-literal-key-quotes": false,

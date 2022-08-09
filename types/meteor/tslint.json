@@ -9,6 +9,7 @@
         "interface-over-type-literal": false,
         "jsdoc-format": false,
         "new-parens": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-consecutive-blank-lines": false,
         "no-declare-current-package": false,

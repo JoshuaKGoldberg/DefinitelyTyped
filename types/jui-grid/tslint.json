@@ -2,6 +2,7 @@
     "extends": "@definitelytyped/dtslint/dt.json",
     "rules": {
         "ban-types": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false
     }
 }

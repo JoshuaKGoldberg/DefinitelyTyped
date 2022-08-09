@@ -3,6 +3,7 @@
     "rules": {
         "array-type": false,
         "dt-header": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-reference-import": false,
         "only-arrow-functions": false

@@ -2,6 +2,7 @@
     "extends": "@definitelytyped/dtslint/dt.json",
     "rules": {
         "jsdoc-format": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-redundant-jsdoc-2": false,
         "no-unnecessary-class": false,

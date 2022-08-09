@@ -4,6 +4,7 @@
         "adjacent-overload-signatures": false,
         "ban-types": false,
         "dt-header": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-padding": false,
         "no-unnecessary-generics": false,

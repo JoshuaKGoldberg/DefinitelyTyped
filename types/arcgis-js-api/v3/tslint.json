@@ -3,6 +3,7 @@
     "rules": {
         "ban-types": false,
         "max-line-length": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-consecutive-blank-lines": false,
         "no-unnecessary-class": false,

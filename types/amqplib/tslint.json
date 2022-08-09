@@ -1,6 +1,7 @@
 {
     "extends": "@definitelytyped/dtslint/dt.json",
     "rules": {
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-empty-interface": false,
         "prefer-const": false

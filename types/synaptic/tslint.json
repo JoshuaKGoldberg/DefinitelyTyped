@@ -3,6 +3,7 @@
     "rules": {
         "dt-header": false,
         "max-line-length": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-self-import": false,
         "no-var-keyword": false,

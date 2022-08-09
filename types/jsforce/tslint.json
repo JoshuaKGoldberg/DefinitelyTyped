@@ -5,6 +5,7 @@
         "await-promise": false,
         "ban-types": false,
         "eofline": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-empty-interface": false,
         "redundant-undefined": false,

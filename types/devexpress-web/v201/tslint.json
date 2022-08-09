@@ -6,6 +6,7 @@
         "interface-name": false,
         "jsdoc-format": false,
         "max-line-length": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-duplicate-variable": false,
         "no-internal-module": false,

@@ -10,6 +10,7 @@
         "jsdoc-format": false,
         "max-line-length": false,
         "member-access": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-conditional-assignment": false,
         "no-consecutive-blank-lines": false,

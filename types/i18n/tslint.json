@@ -1,6 +1,7 @@
 {
     "extends": "@definitelytyped/dtslint/dt.json",
     "rules": {
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-declare-current-package": false,
         "no-single-declare-module": false

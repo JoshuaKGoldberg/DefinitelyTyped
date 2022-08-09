@@ -4,6 +4,7 @@
         "comment-format": false,
         "export-just-namespace": false,
         "interface-name": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-unnecessary-class": false
     }

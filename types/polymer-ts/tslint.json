@@ -5,6 +5,7 @@
         "ban-types": false,
         "dt-header": false,
         "member-access": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-empty-interface": false,
         "no-inferrable-types": false,

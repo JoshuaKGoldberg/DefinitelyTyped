@@ -2,6 +2,7 @@
     "extends": "@definitelytyped/dtslint/dt.json",
     "rules": {
         "dt-header": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "npm-naming": false
     }

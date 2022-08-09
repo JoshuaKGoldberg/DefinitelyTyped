@@ -3,6 +3,7 @@
     "rules": {
         "dt-header": false,
         "jsdoc-format": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-declare-current-package": false,
         "no-var-keyword": false,

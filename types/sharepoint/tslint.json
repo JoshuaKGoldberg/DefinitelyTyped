@@ -4,6 +4,7 @@
         "interface-name": false,
         "jsdoc-format": false,
         "max-line-length": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-const-enum": false,
         "no-duplicate-imports": false,

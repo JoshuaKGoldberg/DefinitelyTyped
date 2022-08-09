@@ -8,6 +8,7 @@
         "interface-over-type-literal": false,
         "jsdoc-format": false,
         "max-line-length": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-empty-interface": false,
         "no-redundant-jsdoc-2": false,

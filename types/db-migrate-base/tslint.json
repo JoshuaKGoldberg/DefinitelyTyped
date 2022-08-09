@@ -4,6 +4,7 @@
         "array-type": false,
         "comment-format": false,
         "dt-header": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-object-literal-type-assertion": false,
         "no-trailing-whitespace": false,

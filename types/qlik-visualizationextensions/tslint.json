@@ -3,6 +3,7 @@
     "rules": {
         "ban-types": false,
         "interface-name": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-empty-interface": false,
         "no-unnecessary-generics": false

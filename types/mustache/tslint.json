@@ -4,6 +4,7 @@
         "dt-header": false,
         "member-access": false,
         "new-parens": false,
+        "@typescript-eslint/no-redundant-type-constituents": false,
         "no-any-union": false,
         "no-consecutive-blank-lines": false,
         "no-var-keyword": false,
