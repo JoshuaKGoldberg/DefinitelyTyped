@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "@typescript-eslint/no-no-redundant-type-constituents": "off"
+    }
+}

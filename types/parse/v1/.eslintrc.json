@@ -1,5 +1,6 @@
 {
-  "rules": {
-      "no-const-enum": "off"
-  }
+    "rules": {
+        "@typescript-eslint/no-no-redundant-type-constituents": "off",
+        "no-const-enum": "off"
+    }
 }
