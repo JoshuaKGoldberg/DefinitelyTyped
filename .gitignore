@@ -31,7 +31,6 @@ _infrastructure/tests/build
 
 # npm
 node_modules
-package-lock.json
 npm-debug.log
 
 # Sublime
