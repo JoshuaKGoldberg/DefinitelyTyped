@@ -152,8 +152,8 @@ declare namespace echarts {
          *
          * @param {number[][]} opt
          * @return {zrender.graphic.Path}
-        */
-        extendShape(opt: zrender.graphic.Path): zrender.graphic.Path
+         */
+        extendShape(opt: zrender.graphic.Path): zrender.graphic.Path;
 
         /**
          * Register a user defined shape.
@@ -161,7 +161,7 @@ declare namespace echarts {
          * @param {string} name
          * @param {zrender.graphic.Path} ShapeClass
          */
-        registerShape(name: string, ShapeClass: zrender.graphic.Path): void
+        registerShape(name: string, ShapeClass: zrender.graphic.Path): void;
 
         /**
          * Get the registered shape class.
@@ -169,7 +169,7 @@ declare namespace echarts {
          * @param {string} name
          * @return {zrender.graphic.Path}
          */
-        getShapeClass(name: string): zrender.graphic.Path
+        getShapeClass(name: string): zrender.graphic.Path;
 
         /**
          * Clip the given points by the given rectangular.
@@ -1024,7 +1024,6 @@ declare namespace echarts {
          * Equal to CanvasRenderingContext2D.globalCompositeOperation
          *
          * @see https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
-         *
          */
         blendMode?: string | undefined;
 
@@ -1607,8 +1606,8 @@ declare namespace echarts {
                 /**
                  * @todo describe
                  */
-                interface Label extends Omit<TextStyleWithRich,'color'> {
-                    color?: string | ((val:string) => EChartOption.Color) | undefined;
+                interface Label extends Omit<TextStyleWithRich, 'color'> {
+                    color?: string | ((val: string) => EChartOption.Color) | undefined;
                     show?: boolean | undefined;
                     interval?: number | Function | undefined;
                     inside?: boolean | undefined;
@@ -1715,7 +1714,8 @@ declare namespace echarts {
                         | 600
                         | 700
                         | 800
-                        | 900 | undefined;
+                        | 900
+                        | undefined;
                     fontFamily?: string | undefined;
                     fontSize?: number | undefined;
                     lineHeight?: number | undefined;

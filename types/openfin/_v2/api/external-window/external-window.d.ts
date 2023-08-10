@@ -1,9 +1,9 @@
-import { _Window } from '../window/window';
+import { Identity } from '../../identity';
 import { AnchorType, Bounds } from '../../shapes/shapes';
+import Transport from '../../transport/transport';
 import { Base, EmitterBase } from '../base';
 import { ExternalWindowEvents } from '../events/externalWindow';
-import { Identity } from '../../identity';
-import Transport from '../../transport/transport';
+import { _Window } from '../window/window';
 /**
  * @lends ExternalWindow
  */

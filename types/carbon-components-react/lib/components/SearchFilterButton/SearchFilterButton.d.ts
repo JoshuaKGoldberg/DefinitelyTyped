@@ -1,12 +1,12 @@
-import * as React from "react";
-import { ReactButtonAttr } from "../../../typings/shared";
+import * as React from 'react';
+import { ReactButtonAttr } from '../../../typings/shared';
 
 /**
  * @deprecated
  */
 export interface SearchFilterButtonProps extends ReactButtonAttr {
-    iconDescription?: string | undefined,
-    labelText?: string | undefined,
+    iconDescription?: string | undefined;
+    labelText?: string | undefined;
 }
 
 /**

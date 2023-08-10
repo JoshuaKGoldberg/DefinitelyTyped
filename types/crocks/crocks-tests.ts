@@ -29,23 +29,23 @@ import Last from 'crocks/Last/Last';
 import maybeToLast from 'crocks/Last/maybeToLast';
 import resultToLast from 'crocks/Last/resultToLast';
 
+import Maybe from 'crocks/Maybe';
 import eitherToMaybe from 'crocks/Maybe/eitherToMaybe';
 import find from 'crocks/Maybe/find';
 import firstToMaybe from 'crocks/Maybe/firstToMaybe';
 import getPath from 'crocks/Maybe/getPath';
 import getProp from 'crocks/Maybe/getProp';
 import lastToMaybe from 'crocks/Maybe/lastToMaybe';
-import Maybe from 'crocks/Maybe';
 import maybeToArray from 'crocks/Maybe/maybeToArray';
 import resultToMaybe from 'crocks/Maybe/resultToMaybe';
 import safe from 'crocks/Maybe/safe';
 import safeAfter from 'crocks/Maybe/safeAfter';
 import safeLift from 'crocks/Maybe/safeLift';
 
+import Pair from 'crocks/Pair';
 import branch from 'crocks/Pair/branch';
 import fanout from 'crocks/Pair/fanout';
 import fst from 'crocks/Pair/fst';
-import Pair from 'crocks/Pair';
 import snd from 'crocks/Pair/snd';
 import toPairs from 'crocks/Pair/toPairs';
 import writerToPair from 'crocks/Pair/writerToPair';
@@ -54,17 +54,17 @@ import * as combinators from 'crocks/combinators';
 import * as pointfree from 'crocks/pointfree';
 import * as predicates from 'crocks/predicates';
 
+import State from 'crocks/State';
 import evalWith from 'crocks/State/evalWith';
 import execWith from 'crocks/State/execWith';
-import State from 'crocks/State';
 
+import Tuple from 'crocks/Tuple';
 import nmap from 'crocks/Tuple/nmap';
 import project from 'crocks/Tuple/project';
-import Tuple from 'crocks/Tuple';
 
+import Writer from 'crocks/Writer';
 import log from 'crocks/Writer/log';
 import read from 'crocks/Writer/read';
-import Writer from 'crocks/Writer';
 
 const noop = () => {};
 

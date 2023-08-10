@@ -1,21 +1,23 @@
 import * as React from 'react';
 import {
+    FCReturn,
+    ForwardRefProps,
     InternationalProps,
     ListBoxBaseItemType,
     VerticalDirection,
-    ForwardRefProps,
-    FCReturn,
 } from '../../../typings/shared';
 import { ListBoxProps } from '../ListBox';
 import { ListBoxMenuIconTranslationKey } from '../ListBox/ListBoxMenuIcon';
-import FilterableMultiSelect from './FilterableMultiSelect';
-import { MultiSelectSortingProps } from './MultiSelectPropTypes';
 import { ListBoxSize } from '../ListBox/ListBoxPropTypes';
 import { ListBoxSelectionTranslationKey } from '../ListBox/ListBoxSelection';
+import FilterableMultiSelect from './FilterableMultiSelect';
+import { MultiSelectSortingProps } from './MultiSelectPropTypes';
 
 export interface MultiSelectProps<T extends ListBoxBaseItemType = string>
-    extends MultiSelectSortingProps<T>,
-        InternationalProps<ListBoxMenuIconTranslationKey | ListBoxSelectionTranslationKey> {
+    extends
+        MultiSelectSortingProps<T>,
+        InternationalProps<ListBoxMenuIconTranslationKey | ListBoxSelectionTranslationKey>
+{
     clearSelectionDescription?: string | undefined;
     clearSelectionText?: string | undefined;
     direction?: VerticalDirection | undefined;

@@ -7,7 +7,7 @@ import './test/es2018.test';
 import './test/es2019.test';
 import './test/index.test';
 
-//#region ./test/helpers/
+// #region ./test/helpers/
 import './test/helpers/DefineOwnProperty.test';
 import './test/helpers/OwnPropertyKeys.test';
 import './test/helpers/assertRecord.test';
@@ -34,12 +34,12 @@ import './test/helpers/regexTester.test';
 import './test/helpers/setProto.test';
 import './test/helpers/sign.test';
 import './test/helpers/timeConstants.test';
-//#endregion
+// #endregion
 
-//#region ./test/operations/
+// #region ./test/operations/
 import './test/operations/2015.test';
 import './test/operations/2016.test';
 import './test/operations/2017.test';
 import './test/operations/2018.test';
 import './test/operations/2019.test';
-//#endregion
+// #endregion

@@ -1,13 +1,13 @@
-import { EmitterBase, Base, Reply } from '../base';
 import { Identity } from '../../identity';
-import { _Window } from '../window/window';
-import { Point } from '../system/point';
-import { MonitorInfo } from '../system/monitor';
-import Transport from '../../transport/transport';
 import { Bounds } from '../../shapes/shapes';
+import Transport from '../../transport/transport';
+import { Base, EmitterBase, Reply } from '../base';
 import { ApplicationEvents } from '../events/application';
-import { ApplicationOption } from './applicationOption';
+import { MonitorInfo } from '../system/monitor';
+import { Point } from '../system/point';
 import { View } from '../view/view';
+import { _Window } from '../window/window';
+import { ApplicationOption } from './applicationOption';
 export interface TrayIconClickReply extends Point, Reply<'application', 'tray-icon-clicked'> {
     button: number;
     monitorInfo: MonitorInfo;

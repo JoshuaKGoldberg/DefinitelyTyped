@@ -1,7 +1,7 @@
 // https://github.com/hapijs/hapi/blob/master/API.md#-servereventevents
 // https://github.com/hapijs/hapi/blob/master/API.md#-requestevents
-import { Lifecycle, Request, Server, ServerOptions, ServerRoute } from "hapi";
 import * as Crypto from 'crypto';
+import { Lifecycle, Request, Server, ServerOptions, ServerRoute } from 'hapi';
 
 const options: ServerOptions = {
     port: 8000,
@@ -12,7 +12,7 @@ const serverRoute: ServerRoute = {
     method: 'GET',
     handler(request) {
         return 'ok: ' + request.path;
-    }
+    },
 };
 
 const onRequest: Lifecycle.Method = (request, h) => {
@@ -42,15 +42,15 @@ const onRequest: Lifecycle.Method = (request, h) => {
      */
     const hash = Crypto.createHash('sha1');
 
-    request.events.on("peek", (chunk) => {
+    request.events.on('peek', chunk => {
         hash.update(chunk);
     });
 
-    request.events.once("finish", () => {
+    request.events.once('finish', () => {
         console.log(hash.digest('hex'));
     });
 
-    request.events.once("disconnect", () => {
+    request.events.once('disconnect', () => {
         console.error('request aborted');
     });
 

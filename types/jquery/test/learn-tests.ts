@@ -11,10 +11,10 @@ interface GreenifyPlugin {
 }
 
 jQuery.fn.greenify = function() {
-    this.css("color", "green");
+    this.css('color', 'green');
 };
 
-jQuery("a").greenify(); // Makes all the links green.
+jQuery('a').greenify(); // Makes all the links green.
 
 // https://learn.jquery.com/events/event-extensions/
 
@@ -23,15 +23,15 @@ jQuery("a").greenify(); // Makes all the links green.
 function special() {
     function defineSpecialEvent() {
         jQuery.event.special.pushy = {
-            bindType: "click",
-            delegateType: "click"
+            bindType: 'click',
+            delegateType: 'click',
         };
     }
 
     function handleObj() {
         jQuery.event.special.multiclick = {
-            delegateType: "click",
-            bindType: "click",
+            delegateType: 'click',
+            bindType: 'click',
             handle(event) {
                 const handleObj = event.handleObj;
                 const targetData = jQuery.data(event.target as Element);
@@ -46,14 +46,14 @@ function special() {
                     event.type = handleObj.type;
                     return ret;
                 }
-            }
+            },
         };
 
         // Sample usage
-        $("p").on("multiclick", {
-            clicks: 3
+        $('p').on('multiclick', {
+            clicks: 3,
         }, () => {
-            alert("clicked 3 times");
+            alert('clicked 3 times');
         });
     }
 }

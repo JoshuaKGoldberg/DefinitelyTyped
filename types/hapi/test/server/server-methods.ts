@@ -1,5 +1,5 @@
 // https://github.com/hapijs/hapi/blob/master/API.md#-servermethods
-import { Server } from "hapi";
+import { Server } from 'hapi';
 
 const server = new Server({
     port: 8000,
@@ -7,5 +7,5 @@ const server = new Server({
 server.start();
 
 server.method('add', (a, b) => (a + b));
-const result = server.methods.add(1, 2);    // 3
+const result = server.methods.add(1, 2); // 3
 console.log(result);

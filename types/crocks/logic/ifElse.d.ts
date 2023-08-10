@@ -6,6 +6,8 @@ import Pred from '../Pred';
  */
 declare function ifElse<A, C>(p: PredicateFunction<A> | Pred, f: (x: A) => any, g: (x: A) => C): (x: A) => A | C;
 declare function ifElse<A, C>(p: PredicateFunction<A> | Pred, f: (x: A) => any): (g: (x: A) => C) => (x: A) => A | C;
-declare function ifElse<A, C>(p: PredicateFunction<A> | Pred): (f: (x: A) => any) => (g: (x: A) => C) => (x: A) => A | C;
+declare function ifElse<A, C>(
+    p: PredicateFunction<A> | Pred,
+): (f: (x: A) => any) => (g: (x: A) => C) => (x: A) => A | C;
 
 export default ifElse;

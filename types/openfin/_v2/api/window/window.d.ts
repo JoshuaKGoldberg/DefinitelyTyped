@@ -1,14 +1,14 @@
-import { Base } from '../base';
 import { Identity } from '../../identity';
-import { Application } from '../application/application';
-import Transport from '../../transport/transport';
-import { WindowEvents } from '../events/window';
 import { AnchorType, Bounds, Transition, TransitionOptions } from '../../shapes/shapes';
-import { WindowOption } from './windowOption';
-import { EntityType } from '../frame/frame';
+import Transport from '../../transport/transport';
+import { Application } from '../application/application';
+import { Base } from '../base';
+import { WindowEvents } from '../events/window';
 import { ExternalWindow } from '../external-window/external-window';
-import { WebContents } from '../webcontents/webcontents';
+import { EntityType } from '../frame/frame';
 import { View } from '../view/view';
+import { WebContents } from '../webcontents/webcontents';
+import { WindowOption } from './windowOption';
 /**
  * @lends Window
  */
@@ -899,7 +899,12 @@ export declare class _Window extends WebContents<WindowEvents> {
      * @return {Promise.<void>}
      * @tutorial Window.resizeBy
      */
-    resizeBy(deltaWidth: number, deltaHeight: number, anchor: AnchorType, options?: WindowMovementOptions): Promise<void>;
+    resizeBy(
+        deltaWidth: number,
+        deltaHeight: number,
+        anchor: AnchorType,
+        options?: WindowMovementOptions,
+    ): Promise<void>;
     /**
      * Resizes the window to the specified dimensions.
      * @param { number } width The change in the width of the window

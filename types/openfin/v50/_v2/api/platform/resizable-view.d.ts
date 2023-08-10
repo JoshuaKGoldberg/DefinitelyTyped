@@ -1,6 +1,6 @@
 /// <reference types="resize-observer-browser" />
-import { Fin, View } from "../../main";
-import { ViewCreationOptions } from "../view/view";
+import { Fin, View } from '../../main';
+import { ViewCreationOptions } from '../view/view';
 export interface ViewState extends ViewCreationOptions {
     url: string;
 }

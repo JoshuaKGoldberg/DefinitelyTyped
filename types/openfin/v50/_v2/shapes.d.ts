@@ -1,4 +1,4 @@
-import { Identity } from "./identity";
+import { Identity } from './identity';
 
 export declare type AnchorType = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 export interface TransitionOptions {

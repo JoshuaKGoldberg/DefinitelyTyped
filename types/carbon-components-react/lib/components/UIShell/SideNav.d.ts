@@ -1,7 +1,7 @@
-import * as React from "react";
-import { InternationalProps, ForwardRefReturn, ReactAttr } from "../../../typings/shared";
+import * as React from 'react';
+import { ForwardRefReturn, InternationalProps, ReactAttr } from '../../../typings/shared';
 
-export type SideNavTranslationKey = "carbon.sidenav.state.closed" | "carbon.sidenav.state.open";
+export type SideNavTranslationKey = 'carbon.sidenav.state.closed' | 'carbon.sidenav.state.open';
 
 export interface SideNavProps extends ReactAttr, InternationalProps<SideNavTranslationKey> {
     addFocusListeners?: boolean | undefined;

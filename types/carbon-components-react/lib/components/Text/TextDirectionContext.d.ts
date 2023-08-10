@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-export type TextDirection = "auto" | "ltr" | "rtl";
+export type TextDirection = 'auto' | 'ltr' | 'rtl';
 
 export interface TextDirectionContextData {
     direction?: TextDirection | undefined;

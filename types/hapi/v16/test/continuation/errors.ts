@@ -1,6 +1,5 @@
-
-import * as Hapi from 'hapi';
 import * as Boom from 'boom';
+import * as Hapi from 'hapi';
 
 // Assignment of a typical function to ContinuationValueFunction is possible
 const handleError: Hapi.ContinuationValueFunction = (err?: Boom.BoomError | null, value?: any) => {
@@ -26,7 +25,11 @@ const handleError: Hapi.ContinuationValueFunction = (err?: Boom.BoomError | null
 handleError(Boom.badData());
 
 // Accepts an error with custom data
-const errorWithData = Boom.badImplementation('', { custom1: 'test', customType: 'Custom1' as 'Custom1', isCustom: true as true });
+const errorWithData = Boom.badImplementation('', {
+    custom1: 'test',
+    customType: 'Custom1' as 'Custom1',
+    isCustom: true as true,
+});
 handleError(errorWithData);
 
 // Accepts an error with a more explicit type

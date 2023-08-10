@@ -1,9 +1,9 @@
-import * as React from "react";
-import { MenuOptionProps } from "./MenuOption";
+import * as React from 'react';
+import { MenuOptionProps } from './MenuOption';
 
 export interface MenuSelectableItemProps {
     initialChecked?: boolean | undefined;
-    label: MenuOptionProps["label"];
+    label: MenuOptionProps['label'];
     onChange?(newChecked: boolean): void;
 }
 

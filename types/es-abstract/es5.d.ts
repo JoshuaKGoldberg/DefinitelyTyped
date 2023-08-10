@@ -1,7 +1,7 @@
 import type {
-    GenericDescriptor as ESGenericDescriptor,
     AccessorDescriptor as ESAccessorDescriptor,
     DataDescriptor as ESDataDescriptor,
+    GenericDescriptor as ESGenericDescriptor,
     PropertyDescriptor as ESPropertyDescriptor,
 } from './index';
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactDivAttr, ReactButtonAttr } from '../../../typings/shared';
+import { ReactButtonAttr, ReactDivAttr } from '../../../typings/shared';
 
 export interface TabsProps extends Omit<ReactDivAttr, 'onScroll'> {
     ariaLabel?: string | undefined;

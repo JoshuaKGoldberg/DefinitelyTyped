@@ -1,6 +1,6 @@
+import { EntityType } from '../api/frame/frame';
 import { Identity } from '../main';
 import { default as Transport } from '../transport/transport';
-import { EntityType } from '../api/frame/frame';
 export declare function getInstanceByEntityType(entityType: string, wire: Transport, identity: Identity): {};
 export interface EntityTypeHelpers {
     isView: boolean;

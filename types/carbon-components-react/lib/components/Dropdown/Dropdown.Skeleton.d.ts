@@ -1,12 +1,12 @@
-import * as React from "react";
-import { ReactDivAttr } from "../../../typings/shared";
-import { ListBoxSize } from "../ListBox/ListBoxPropTypes";
+import * as React from 'react';
+import { ReactDivAttr } from '../../../typings/shared';
+import { ListBoxSize } from '../ListBox/ListBoxPropTypes';
 
 export interface DropdownSkeletonProps extends ReactDivAttr {
     /**
      * @deprecated
      */
-    inline?: boolean | undefined,
+    inline?: boolean | undefined;
     size?: ListBoxSize | undefined;
 }
 

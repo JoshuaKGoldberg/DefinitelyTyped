@@ -1,5 +1,5 @@
-import ExpandableSearch from "./ExpandableSearch";
+import ExpandableSearch from './ExpandableSearch';
 
-export * from "./ExpandableSearch";
+export * from './ExpandableSearch';
 
 export default ExpandableSearch;

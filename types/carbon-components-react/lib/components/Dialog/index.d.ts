@@ -1,5 +1,5 @@
-import { ForwardRefProps, FCReturn, ReactComponentConstructor } from '../../../typings/shared';
-import { FocusScopeDefaultProps, FocusScopeIntrinsicProps, FocusScopeCustomComponentProps } from '../FocusScope';
+import { FCReturn, ForwardRefProps, ReactComponentConstructor } from '../../../typings/shared';
+import { FocusScopeCustomComponentProps, FocusScopeDefaultProps, FocusScopeIntrinsicProps } from '../FocusScope';
 
 // Props used by Dialog that are not inherited from FocusScope usage
 interface DialogBaseProps {
@@ -18,14 +18,16 @@ export type ExcludedDialogPropKeys =
 
 export interface DialogDefaultProps extends Omit<FocusScopeDefaultProps, ExcludedDialogPropKeys>, DialogBaseProps {}
 
-export type DialogIntrinsicProps<K extends keyof JSX.IntrinsicElements> = Omit<
-    FocusScopeIntrinsicProps<K>,
-    ExcludedDialogPropKeys
-> &
-    DialogBaseProps;
+export type DialogIntrinsicProps<K extends keyof JSX.IntrinsicElements> =
+    & Omit<
+        FocusScopeIntrinsicProps<K>,
+        ExcludedDialogPropKeys
+    >
+    & DialogBaseProps;
 
-export type DialogCustomComponentProps<T extends ReactComponentConstructor<never>> = FocusScopeCustomComponentProps<T> &
-    DialogBaseProps;
+export type DialogCustomComponentProps<T extends ReactComponentConstructor<never>> =
+    & FocusScopeCustomComponentProps<T>
+    & DialogBaseProps;
 
 declare function Dialog(props: ForwardRefProps<HTMLDivElement, DialogDefaultProps>): FCReturn;
 declare function Dialog<T extends keyof JSX.IntrinsicElements, R extends HTMLElement = HTMLElement>(

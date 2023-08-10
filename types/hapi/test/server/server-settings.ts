@@ -1,5 +1,5 @@
 // https://github.com/hapijs/hapi/blob/master/API.md#-serversettings
-import { Server } from "hapi";
+import { Server } from 'hapi';
 
 declare module 'hapi' {
     interface ServerOptionsApp {
@@ -10,9 +10,9 @@ declare module 'hapi' {
 const server = new Server({
     port: 8000,
     app: {
-        key: 'value'
-    }
+        key: 'value',
+    },
 });
 server.start();
 
-console.log(server.settings.app);   // { key: 'value' }
+console.log(server.settings.app); // { key: 'value' }

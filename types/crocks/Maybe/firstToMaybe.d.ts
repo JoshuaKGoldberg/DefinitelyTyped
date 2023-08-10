@@ -1,5 +1,5 @@
-import { UnaryFunction } from '../internal/types';
 import First from '../First';
+import { UnaryFunction } from '../internal/types';
 import Maybe from './Maybe';
 
 /**

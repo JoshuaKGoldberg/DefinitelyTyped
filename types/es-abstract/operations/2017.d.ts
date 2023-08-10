@@ -2,8 +2,10 @@ import ES2016Operations = require('./2016');
 import ES2017 = require('../es2017');
 
 interface ES2017Operations
-    extends Record<keyof ES2017, string>,
-        Omit<ES2016Operations, 'EnumerableOwnNames' | 'IterableToArrayLike' | 'NextJob'> {
+    extends
+        Record<keyof ES2017, string>,
+        Omit<ES2016Operations, 'EnumerableOwnNames' | 'IterableToArrayLike' | 'NextJob'>
+{
     AddWaiter: string;
     'agent-order': string;
     AgentCanSuspend: string;

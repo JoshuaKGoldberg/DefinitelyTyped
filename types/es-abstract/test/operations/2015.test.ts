@@ -35,11 +35,11 @@ declare const RemovedKeysActual: Exclude<keyof ES5, keyof ES2015Operations>;
 export declare const RemovedKeys: RemovedKeys;
 
 // ## Long types:
-//#region RemovedKeys
+// #region RemovedKeys
 export type RemovedKeys = 'CheckObjectCoercible';
-//#endregion
+// #endregion
 
-//#region AddedKeys
+// #region AddedKeys
 export type AddedKeys =
     | 'Construct'
     | 'CreateArrayFromList'
@@ -115,9 +115,9 @@ export type AllAddedKeys =
     | 'thisNumberValue'
     | 'thisStringValue'
     | 'thisTimeValue';
-//#endregion
+// #endregion
 
-//#region ExpectedKeys
+// #region ExpectedKeys
 type ExpectedKeys =
     | 'IsPropertyDescriptor'
     | 'Abstract Equality Comparison'
@@ -231,4 +231,4 @@ type ExpectedKeys =
     | 'ValidateAndApplyPropertyDescriptor'
     | 'WeekDay'
     | 'YearFromTime';
-//#endregion
+// #endregion

@@ -1,27 +1,35 @@
-import * as React from "react";
+import * as React from 'react';
 import {
-    ReactButtonAttr,
     FCReturn,
+    ForwardRefProps,
     JSXIntrinsicElementProps,
     ReactAnchorAttr,
-    ForwardRefProps,
+    ReactButtonAttr,
+    ReactComponentConstructor,
     TooltipAlignment,
     TooltipPosition,
-    ReactComponentConstructor,
-} from "../../../typings/shared";
+} from '../../../typings/shared';
 
-export type ButtonKind = "danger" | "danger--ghost" | "danger--primary" | "danger--tertiary" | "ghost" | "primary" | "secondary" | "tertiary";
-export type ButtonSize = "default" | "field" | "lg" | "md" | "sm" | "small" | "xl" | "2xl";
+export type ButtonKind =
+    | 'danger'
+    | 'danger--ghost'
+    | 'danger--primary'
+    | 'danger--tertiary'
+    | 'ghost'
+    | 'primary'
+    | 'secondary'
+    | 'tertiary';
+export type ButtonSize = 'default' | 'field' | 'lg' | 'md' | 'sm' | 'small' | 'xl' | '2xl';
 
 export interface ButtonRenderIconRenderProps {
-    "aria-hidden"?: boolean | undefined;
-    "aria-label"?: string | undefined;
+    'aria-hidden'?: boolean | undefined;
+    'aria-label'?: string | undefined;
     className?: string | undefined;
 }
 
 // this is split due to a typing issue with the specialized buttons (SecondaryButton, etc)
 export interface ButtonKindProps {
-    kind?: ButtonKind | undefined;  // required by has default value
+    kind?: ButtonKind | undefined; // required by has default value
 }
 
 // these props are not passed to the general createElement call
@@ -57,23 +65,26 @@ export interface ButtonDefaultProps extends ButtonBaseProps, ReactButtonAttr {
 // alias for old type that used to be exported
 export type ButtonProps = ButtonDefaultProps;
 
-export interface ButtonAnchorProps extends ButtonBaseProps, Omit<ReactAnchorAttr, "href"> {
+export interface ButtonAnchorProps extends ButtonBaseProps, Omit<ReactAnchorAttr, 'href'> {
     as?: undefined;
     href: string;
 }
 
-export type ButtonIntrinsicProps<K extends keyof JSX.IntrinsicElements> = ButtonBaseProps &
-    SafeProps<JSXIntrinsicElementProps<K>> & {
+export type ButtonIntrinsicProps<K extends keyof JSX.IntrinsicElements> =
+    & ButtonBaseProps
+    & SafeProps<JSXIntrinsicElementProps<K>>
+    & {
         as: K;
     };
 
 export type ButtonCustomComponentProps<
-    C extends ReactComponentConstructor<never>
-> = C extends ReactComponentConstructor<infer P>
-    ? ButtonBaseProps &
-            SafeProps<P> & {
-                as: C;
-            }
+    C extends ReactComponentConstructor<never>,
+> = C extends ReactComponentConstructor<infer P> ?
+        & ButtonBaseProps
+        & SafeProps<P>
+        & {
+            as: C;
+        }
     : never;
 
 //
@@ -90,7 +101,11 @@ export type ButtonCustomComponentProps<
 declare function Button(props: ForwardRefProps<HTMLButtonElement, ButtonDefaultProps & ButtonKindProps>): FCReturn;
 // tslint:disable:unified-signatures breaks certain usages
 declare function Button(props: ForwardRefProps<HTMLAnchorElement, ButtonAnchorProps & ButtonKindProps>): FCReturn;
-declare function Button<T extends keyof JSX.IntrinsicElements, R extends HTMLElement = HTMLElement>(props: ForwardRefProps<R, ButtonIntrinsicProps<T> & ButtonKindProps>): FCReturn;
-declare function Button<T extends ReactComponentConstructor<never>, R = unknown>(props: ForwardRefProps<R, ButtonCustomComponentProps<T> & ButtonKindProps>): FCReturn;
+declare function Button<T extends keyof JSX.IntrinsicElements, R extends HTMLElement = HTMLElement>(
+    props: ForwardRefProps<R, ButtonIntrinsicProps<T> & ButtonKindProps>,
+): FCReturn;
+declare function Button<T extends ReactComponentConstructor<never>, R = unknown>(
+    props: ForwardRefProps<R, ButtonCustomComponentProps<T> & ButtonKindProps>,
+): FCReturn;
 
 export default Button;

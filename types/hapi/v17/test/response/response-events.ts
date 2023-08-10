@@ -1,6 +1,6 @@
 // https://github.com/hapijs/hapi/blob/master/API.md#-responseevents
-import { Lifecycle, Request, ResponseObject, ResponseToolkit, Server, ServerOptions, ServerRoute } from "hapi";
-import * as Crypto from "crypto";
+import * as Crypto from 'crypto';
+import { Lifecycle, Request, ResponseObject, ResponseToolkit, Server, ServerOptions, ServerRoute } from 'hapi';
 
 const preResponse: Lifecycle.Method = (request, h) => {
     // In onPreResponse, the response object will be defined.

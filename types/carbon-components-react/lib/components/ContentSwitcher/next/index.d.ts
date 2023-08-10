@@ -1,5 +1,5 @@
-import * as React from "react";
-import { ReactButtonAttr, ReactDivAttr, ForwardRefReturn } from "../../../../typings/shared";
+import * as React from 'react';
+import { ForwardRefReturn, ReactButtonAttr, ReactDivAttr } from '../../../../typings/shared';
 
 export interface ContentSwitcherNextProps {
     children?: React.ReactNode | undefined;
@@ -10,17 +10,17 @@ export interface ContentSwitcherNextProps {
 
 export declare const ContentSwitcher: React.FC<ContentSwitcherNextProps>;
 
-type ExcludedContentTabsPropsKeys = "aria-label" | "onKeyDown" | "role";
+type ExcludedContentTabsPropsKeys = 'aria-label' | 'onKeyDown' | 'role';
 export interface ContentTabsProps extends Omit<ReactDivAttr, ExcludedContentTabsPropsKeys> {
-    activation?: "automatic" | "manual" | undefined;
+    activation?: 'automatic' | 'manual' | undefined;
     'aria-label': string;
     children?: React.ReactNode | undefined;
-    size?: "sm" | "md" | "lg" | undefined;
+    size?: 'sm' | 'md' | 'lg' | undefined;
 }
 
 export declare const ContentTabs: React.FC<ContentTabsProps>;
 
-type ExcludedContentTabPropKeys = "aria-controls" | "aria-selected" | "id" | "onClick" | "role" | "tabIndex" | "type";
+type ExcludedContentTabPropKeys = 'aria-controls' | 'aria-selected' | 'id' | 'onClick' | 'role' | 'tabIndex' | 'type';
 export interface ContentTabProps extends Omit<ReactButtonAttr, ExcludedContentTabPropKeys> {
     children?: React.ReactNode | undefined;
 }
@@ -33,7 +33,7 @@ export interface ContentPanelsProps {
 
 export declare const ContentPanels: React.FC<ContentPanelsProps>;
 
-type ExcludedContentPanelPropKeys = "aria-labelledby" | "hidden" | "id" | "role" | "tabIndex";
+type ExcludedContentPanelPropKeys = 'aria-labelledby' | 'hidden' | 'id' | 'role' | 'tabIndex';
 export interface ContentPanelProps extends Omit<ReactDivAttr, ExcludedContentPanelPropKeys> {
     children?: React.ReactNode | undefined;
 }

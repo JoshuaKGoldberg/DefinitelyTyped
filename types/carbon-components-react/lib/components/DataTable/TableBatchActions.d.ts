@@ -11,8 +11,8 @@ export interface TableBatchActionsTranslationArgs {
 }
 
 export interface TableBatchActionsProps
-    extends ReactDivAttr,
-        InternationalProps<TableBatchActionsTranslationKey, TableBatchActionsTranslationArgs> {
+    extends ReactDivAttr, InternationalProps<TableBatchActionsTranslationKey, TableBatchActionsTranslationArgs>
+{
     onCancel(event: React.MouseEvent<HTMLButtonElement>): void;
     shouldShowBatchActions?: boolean | undefined;
     totalSelected: number;

@@ -1,9 +1,13 @@
-import { CrashedEvent } from './application';
-import { WindowEvent, BaseEventMap } from './base';
-import { WindowOptionDiff, WindowOption } from '../window/windowOption';
-import { WebContentsEventMapping, WindowResourceLoadFailedEvent, WindowResourceResponseReceivedEvent } from './webcontents';
-import { PropagatedViewEventMapping, InputEvent } from './view';
 import { Identity } from '../../main';
+import { WindowOption, WindowOptionDiff } from '../window/windowOption';
+import { CrashedEvent } from './application';
+import { BaseEventMap, WindowEvent } from './base';
+import { InputEvent, PropagatedViewEventMapping } from './view';
+import {
+    WebContentsEventMapping,
+    WindowResourceLoadFailedEvent,
+    WindowResourceResponseReceivedEvent,
+} from './webcontents';
 export declare type SpecificWindowEvent<Type> = WindowEvent<'window', Type>;
 export interface WindowAlertRequestedEvent<Topic, Type> extends WindowEvent<Topic, Type> {
     message: string;
@@ -181,9 +185,11 @@ export interface PropagatedWindowEventMapping<Topic = string, Type = string> ext
     'window-will-move': WillMoveOrResize<Topic, Type>;
     'window-will-resize': WillMoveOrResize<Topic, Type>;
 }
-export declare type WindowEvents = PropagatedViewEventMapping<'window'> & {
-    [Type in keyof WindowEventMapping]: WindowEventMapping<'window', Type>[Type];
-};
+export declare type WindowEvents =
+    & PropagatedViewEventMapping<'window'>
+    & {
+        [Type in keyof WindowEventMapping]: WindowEventMapping<'window', Type>[Type];
+    };
 export declare type PropagatedWindowEvents<Topic> = {
     [Type in keyof PropagatedWindowEventMapping]: PropagatedWindowEventMapping<Topic, Type>[Type];
 };

@@ -7,7 +7,7 @@ export interface Wire extends EventEmitter {
     shutdown(): Promise<void>;
 }
 export interface WireConstructor {
-    new (onmessage: (data: any) => void): Wire;
+    new(onmessage: (data: any) => void): Wire;
 }
 export interface RuntimeConfig {
     version: string;
@@ -72,5 +72,5 @@ export declare enum READY_STATE {
     CONNECTING = 0,
     OPEN = 1,
     CLOSING = 2,
-    CLOSED = 3
+    CLOSED = 3,
 }

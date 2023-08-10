@@ -506,7 +506,8 @@ declare namespace echarts {
                     | 600
                     | 700
                     | 800
-                    | 900 | undefined;
+                    | 900
+                    | undefined;
                 /**
                  * font family.
                  *

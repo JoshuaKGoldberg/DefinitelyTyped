@@ -80,8 +80,8 @@ export type ForwardRefReturn<T, P = {}> = React.ForwardRefExoticComponent<Forwar
 
 export type JSXIntrinsicElementProps<
     K extends keyof JSX.IntrinsicElements,
-    REF extends boolean = false
+    REF extends boolean = false,
 > = REF extends true ? JSX.IntrinsicElements[K] : Omit<JSX.IntrinsicElements[K], 'ref'>;
 
 // for "as" props
-export type ReactComponentConstructor<P> = ((props: P) => FCReturn) | (new (props: P) => React.Component<unknown, any>);
+export type ReactComponentConstructor<P> = ((props: P) => FCReturn) | (new(props: P) => React.Component<unknown, any>);

@@ -1,5 +1,5 @@
 // https://github.com/hapijs/hapi/blob/master/API.md#-await-serverinjectoptions
-import { Request, ResponseToolkit, Server, ServerRoute } from "hapi";
+import { Request, ResponseToolkit, Server, ServerRoute } from 'hapi';
 
 const server = new Server({
     port: 8000,
@@ -10,7 +10,7 @@ const serverRoute: ServerRoute = {
     method: 'GET',
     handler(request, h) {
         return 'Success!';
-    }
+    },
 };
 
 server.route(serverRoute);
@@ -25,8 +25,8 @@ declare module 'hapi' {
 }
 
 server.inject({
-    url: "test",
+    url: 'test',
     app: {
-        injectState: 1
-    }
+        injectState: 1,
+    },
 });

@@ -1,5 +1,5 @@
 // https://github.com/hapijs/hapi/blob/master/API.md#-serverplugins
-import { Plugin, Server, ServerRegisterOptions } from "hapi";
+import { Plugin, Server, ServerRegisterOptions } from 'hapi';
 
 interface Plugin1 {
     one: 1;
@@ -31,8 +31,8 @@ const plugin1: Plugin<Plugin1> = {
     register: async (server: Server, options: Plugin1) => {
         server.expose('key', 'value');
         server.plugins.example.other = 'other';
-        console.log(server.plugins.example.key);      // 'value'
-        console.log(server.plugins.example.other);    // 'other'
+        console.log(server.plugins.example.key); // 'value'
+        console.log(server.plugins.example.other); // 'other'
     },
 };
 
@@ -69,48 +69,48 @@ server.register(plugin1);
 
 server.register({
     plugin: plugin1,
-    options: {one: 1}
+    options: { one: 1 },
 });
 
 server.register([
     {
         plugin: plugin2,
-        options: {two: 2}
+        options: { two: 2 },
     },
     {
         plugin: plugin3,
-        options: {three: 3}
+        options: { three: 3 },
     },
     {
         plugin: plugin1,
-        options: {one: 1}
+        options: { one: 1 },
     },
     {
         plugin: plugin2,
-        options: {two: 2}
+        options: { two: 2 },
     },
     {
         plugin: plugin3,
-        options: {three: 3}
+        options: { three: 3 },
     },
     {
         plugin: plugin1,
-        options: {one: 1}
+        options: { one: 1 },
     },
     {
         plugin: plugin2,
-        options: {two: 2}
+        options: { two: 2 },
     },
     {
         plugin: plugin3,
-        options: {three: 3}
+        options: { three: 3 },
     },
     {
         plugin: plugin1,
-        options: {one: 1}
+        options: { one: 1 },
     },
     {
         plugin: plugin4,
-        options: {four: 4}
-    }
+        options: { four: 4 },
+    },
 ]);

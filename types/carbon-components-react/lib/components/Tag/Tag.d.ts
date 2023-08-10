@@ -1,36 +1,36 @@
-import * as React from "react";
-import { ReactAttr, ReactDivAttr, FCProps, FCReturn } from "../../../typings/shared";
+import * as React from 'react';
+import { FCProps, FCReturn, ReactAttr, ReactDivAttr } from '../../../typings/shared';
 
 export type TagTypeName =
-    "red"
-    | "magenta"
-    | "purple"
-    | "blue"
-    | "cyan"
-    | "teal"
-    | "green"
-    | "gray"
-    | "cool-gray"
-    | "warm-gray"
-    | "high-contrast"
-    | "outline";
+    | 'red'
+    | 'magenta'
+    | 'purple'
+    | 'blue'
+    | 'cyan'
+    | 'teal'
+    | 'green'
+    | 'gray'
+    | 'cool-gray'
+    | 'warm-gray'
+    | 'high-contrast'
+    | 'outline';
 
 export declare const types: TagTypeName[];
 
 interface SharedProps {
     disabled?: boolean | undefined;
-    size?: "sm" | "md" | undefined;
-    type?: TagTypeName | undefined,
+    size?: 'sm' | 'md' | undefined;
+    type?: TagTypeName | undefined;
 }
 
 export interface FilterTagProps extends ReactDivAttr, SharedProps {
-    filter: true,
-    onClose?(event: React.MouseEvent<HTMLButtonElement>): void,
+    filter: true;
+    onClose?(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 // div or button, HTMLElement will need to be casted
 export interface ChipTagProps extends ReactAttr, SharedProps {
-    filter?: false | undefined,
+    filter?: false | undefined;
     renderIcon?: React.ComponentType<any> | undefined;
 }
 

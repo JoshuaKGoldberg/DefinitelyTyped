@@ -1,9 +1,9 @@
 import { ERROR_BOX_TYPES } from './ERROR_BOX_TYPES';
-import { Hotkey } from './shapes';
-import { WebRequestHeaderConfig } from './WebRequestHeader';
-import { WebOptions } from './WebOptions';
-import { PreloadScript } from './PreloadScript';
 import { Layout } from './Layout';
+import { PreloadScript } from './PreloadScript';
+import { Hotkey } from './shapes';
+import { WebOptions } from './WebOptions';
+import { WebRequestHeaderConfig } from './WebRequestHeader';
 export interface WindowOptions extends WebOptions {
     'accelerator'?: {
         devtools: boolean;

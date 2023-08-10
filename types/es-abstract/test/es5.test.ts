@@ -2,17 +2,17 @@ import ES5 = require('es-abstract/es5');
 import { expectType } from './index.test';
 
 declare const any: unknown;
-const nullableObject: string | object | null | undefined =
-    Math.random() < 0.5 ? (Math.random() < 0.5 ? undefined : null) : Object('foo');
+const nullableObject: string | object | null | undefined = Math.random() < 0.5
+    ? (Math.random() < 0.5 ? undefined : null)
+    : Object('foo');
 
-const nullableMaybePromise =
-    Math.random() < 0.5
-        ? Math.random() < 0.5
-            ? undefined
-            : null
-        : Math.random() < 0.5
-        ? ('bar' as string)
-        : Promise.resolve('baz');
+const nullableMaybePromise = Math.random() < 0.5
+    ? Math.random() < 0.5
+        ? undefined
+        : null
+    : Math.random() < 0.5
+    ? ('bar' as string)
+    : Promise.resolve('baz');
 
 ES5.Type(undefined); // $ExpectType "Undefined"
 ES5.Type(null); // $ExpectType "Null"
@@ -53,4 +53,4 @@ ES5.CheckObjectCoercible(nullableObject!); // $ExpectType string | object
 ES5.CheckObjectCoercible(any);
 
 ES5.ToPropertyDescriptor({ value: 123 }); // $ExpectType PropertyDescriptor<number>
-ES5.FromPropertyDescriptor({ "[[Value]]": '456' }); // $ExpectType TypedPropertyDescriptor<string>
+ES5.FromPropertyDescriptor({ '[[Value]]': '456' }); // $ExpectType TypedPropertyDescriptor<string>

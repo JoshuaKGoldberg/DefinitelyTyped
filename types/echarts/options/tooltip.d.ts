@@ -194,7 +194,7 @@ declare namespace echarts {
              *
              * @default 'item'
              */
-            trigger?: "item" | "axis" | "none" | undefined;
+            trigger?: 'item' | 'axis' | 'none' | undefined;
 
             /**
              * `axisPointer` is a tool for displaying reference line
@@ -251,7 +251,7 @@ declare namespace echarts {
              *
              * @default 'mousemove|click'
              */
-            triggerOn?: "mousemove" | "click" | "mousemove|click" | "none" | undefined;
+            triggerOn?: 'mousemove' | 'click' | 'mousemove|click' | 'none' | undefined;
 
             /**
              * Delay time for showing tooltip, in ms.
@@ -292,7 +292,7 @@ declare namespace echarts {
              *
              * @default 'html'
              */
-            renderMode?: "html" | undefined;
+            renderMode?: 'html' | undefined;
 
             /**
              * Whether confine tooltip content in the view rect
@@ -339,7 +339,7 @@ declare namespace echarts {
             namespace Position {
                 type Type = Position.Str | Position.Obj | (number | string)[] | Position.Fn;
 
-                type Str = "inside" | "top" | "left" | "right" | "bottom";
+                type Str = 'inside' | 'top' | 'left' | 'right' | 'bottom';
 
                 interface Obj {
                     top?: string | number | undefined;
@@ -390,7 +390,7 @@ declare namespace echarts {
             }
 
             interface Format {
-                componentType?: "series" | undefined;
+                componentType?: 'series' | undefined;
 
                 // Series type
                 seriesType?: string | undefined;
@@ -446,8 +446,8 @@ declare namespace echarts {
             }
             interface AxisPointer {
                 show?: boolean | undefined;
-                type?: "line" | "shadow" | "none" | "cross" | undefined;
-                axis?: "auto" | "x" | "y" | "radius" | "angle" | undefined;
+                type?: 'line' | 'shadow' | 'none' | 'cross' | undefined;
+                axis?: 'auto' | 'x' | 'y' | 'radius' | 'angle' | undefined;
                 snap?: boolean | undefined;
                 z?: number | undefined;
                 label?: BasicComponents.CartesianAxis.PointerLabel | undefined;

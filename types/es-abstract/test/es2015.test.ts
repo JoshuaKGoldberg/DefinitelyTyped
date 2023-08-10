@@ -144,7 +144,9 @@ completeDataDescriptor['[[Enumerable]]']; // $ExpectType boolean
 completeDataDescriptor['[[Writable]]']; // $ExpectType boolean
 completeDataDescriptor['[[Value]]']; // $ExpectType number | undefined
 
-const completeAccessorDescriptor = ES2015.CompletePropertyDescriptor(newType<{ '[[Get]]'?: (() => symbol) | undefined }>());
+const completeAccessorDescriptor = ES2015.CompletePropertyDescriptor(
+    newType<{ '[[Get]]'?: (() => symbol) | undefined }>(),
+);
 completeAccessorDescriptor['[[Configurable]]']; // $ExpectType boolean
 completeAccessorDescriptor['[[Enumerable]]']; // $ExpectType boolean
 completeAccessorDescriptor['[[Get]]']; // $ExpectType (() => symbol) | undefined
@@ -171,13 +173,13 @@ declare class Foo {}
 
 declare const Bar: {
     (): any;
-    new (): object;
+    new(): object;
     readonly prototype: unknown;
 };
 
 declare const Baz: {
     (foo: number): any;
-    new (bar: string): object;
+    new(bar: string): object;
     readonly prototype?: unknown | undefined;
 };
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {
-    ReactAttr,
-    JSXIntrinsicElementProps,
     FCReturn,
     ForwardRefProps,
+    JSXIntrinsicElementProps,
+    ReactAttr,
     ReactComponentConstructor,
 } from '../../../typings/shared';
 
@@ -40,23 +40,28 @@ interface PopoverBaseProps extends PopoverBaseIsolatedProps {
     className?: string | undefined;
 }
 
-export type PopoverDefaultProps = PopoverBaseProps &
-    ReactAttr<HTMLSpanElement> & {
+export type PopoverDefaultProps =
+    & PopoverBaseProps
+    & ReactAttr<HTMLSpanElement>
+    & {
         as?: undefined;
     };
 
-export type PopoverIntrinsicProps<K extends keyof JSX.IntrinsicElements> = PopoverBaseProps &
-    SafePopoverProps<JSXIntrinsicElementProps<K>> & {
+export type PopoverIntrinsicProps<K extends keyof JSX.IntrinsicElements> =
+    & PopoverBaseProps
+    & SafePopoverProps<JSXIntrinsicElementProps<K>>
+    & {
         as: K;
     };
 
 export type PopoverCustomComponentProps<
-    C extends ReactComponentConstructor<never>
-> = C extends ReactComponentConstructor<infer P>
-    ? PopoverBaseProps &
-          SafePopoverProps<P> & {
-              as: C;
-          }
+    C extends ReactComponentConstructor<never>,
+> = C extends ReactComponentConstructor<infer P> ?
+        & PopoverBaseProps
+        & SafePopoverProps<P>
+        & {
+            as: C;
+        }
     : never;
 
 declare function Popover(props: ForwardRefProps<HTMLSpanElement, PopoverDefaultProps>): FCReturn;
@@ -71,7 +76,7 @@ declare function Popover<T extends ReactComponentConstructor<never>, R = unknown
  * PopoverContent
  */
 
-export interface PopoverContentProps extends ReactAttr<HTMLSpanElement> { }
+export interface PopoverContentProps extends ReactAttr<HTMLSpanElement> {}
 
 declare function PopoverContent(props: ForwardRefProps<HTMLSpanElement, PopoverContentProps>): FCReturn;
 

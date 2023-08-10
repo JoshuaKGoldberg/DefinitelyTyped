@@ -1,0 +1,38 @@
+{
+    "excludes": [
+      // These files are auto-generated and don't need to be formatted
+      "./types/custom-functions-runtime",
+      "./types/dojo",
+      "./types/facebook-nodejs-business-sdk",
+      "./types/fhir",
+      "./types/fibjs",
+      "./types/get-intrinsic",
+      "./types/locutus",
+      "./types/lodash",
+      "./types/material-ui",
+      "./types/meteor",
+      "./types/nginstack__engine",
+      "./types/node",
+      "./types/office-js-preview",
+      "./types/office-js",
+      "./types/office-runtime",
+      "./types/oibackoff",
+      "./types/oibackoff",
+      "./types/openui5",
+      "./types/p5",
+      "./types/sawtooth-sdk",
+      "./types/three",
+      "./types/winrt-uwp",
+      "./types/vscode"
+    ],
+    "plugins": [
+      "https://plugins.dprint.dev/typescript-0.85.1.wasm"
+    ],
+    "indentWidth": 4,
+    "lineWidth": 120,
+    "typescript": {
+      "arrowFunction.useParentheses": "preferNone",
+      "quoteStyle": "alwaysSingle",
+      "trailingCommas": "onlyMultiLine"
+    }
+  }

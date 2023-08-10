@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ReactAttr } from '../../../typings/shared';
-import { FileStatus, FileUploaderSize } from './shared';
 import { ButtonKind } from '../Button';
 import { FileUploaderButtonProps } from './FileUploaderButton';
+import { FileStatus, FileUploaderSize } from './shared';
 
 // FileUploader
 export interface FileUploaderProps extends Omit<ReactAttr, 'onChange'> {

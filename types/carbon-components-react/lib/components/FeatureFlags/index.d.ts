@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 // TODO: import FeatureFlagScope related things from @types/carbon__feature-flags when available
 export type FeatureFlagRecord = Record<string, boolean>;
@@ -25,6 +25,4 @@ declare const FeatureFlags: React.FC<FeatureFlagsProps>;
 declare function useFeatureFlag(flag: string): boolean;
 declare function useFeatureFlags(): FeatureFlagScope;
 
-export {
-    FeatureFlags, FeatureFlagContext, useFeatureFlags, useFeatureFlag
-};
+export { FeatureFlagContext, FeatureFlags, useFeatureFlag, useFeatureFlags };

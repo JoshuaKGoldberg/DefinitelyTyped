@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactInputAttr, CarbonInputSize } from '../../../typings/shared';
+import { CarbonInputSize, ReactInputAttr } from '../../../typings/shared';
 
 type ExcludedAttributes = 'className' | 'id' | 'size';
 export interface DatePickerInputProps extends Omit<ReactInputAttr, ExcludedAttributes> {

@@ -1,8 +1,12 @@
-import { WebContentsEventMapping, WindowResourceLoadFailedEvent, WindowResourceResponseReceivedEvent } from './webcontents';
-import { WindowEvent, BaseEventMap } from './base';
-import { WindowNavigationRejectedEvent } from './window';
-import { CrashedEvent } from './application';
 import { NamedIdentity } from '../../identity';
+import { CrashedEvent } from './application';
+import { BaseEventMap, WindowEvent } from './base';
+import {
+    WebContentsEventMapping,
+    WindowResourceLoadFailedEvent,
+    WindowResourceResponseReceivedEvent,
+} from './webcontents';
+import { WindowNavigationRejectedEvent } from './window';
 export interface ViewEventMapping<Topic = string, Type = string> extends WebContentsEventMapping {
     'attached': WindowEvent<Topic, Type>;
     'created': WindowEvent<Topic, Type>;

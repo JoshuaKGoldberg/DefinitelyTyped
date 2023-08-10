@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {
-    ReactDivAttr,
-    JSXIntrinsicElementProps,
-    ReactComponentConstructor,
     FCReturn,
     ForwardRefProps,
+    JSXIntrinsicElementProps,
+    ReactComponentConstructor,
+    ReactDivAttr,
 } from '../../../typings/shared';
 
 // These are the props not spread onto the component supplied from the "as" prop (aliased BaseComponent in the src).
@@ -20,23 +20,28 @@ interface FocusScopeBaseProps extends FocusScopeBaseIsolatedProps {
     children?: React.ReactNode | undefined;
 }
 
-export type FocusScopeDefaultProps = FocusScopeBaseProps &
-    ReactDivAttr & {
+export type FocusScopeDefaultProps =
+    & FocusScopeBaseProps
+    & ReactDivAttr
+    & {
         as?: undefined;
     };
 
-export type FocusScopeIntrinsicProps<K extends keyof JSX.IntrinsicElements> = FocusScopeBaseProps &
-    SafeProps<JSXIntrinsicElementProps<K>> & {
+export type FocusScopeIntrinsicProps<K extends keyof JSX.IntrinsicElements> =
+    & FocusScopeBaseProps
+    & SafeProps<JSXIntrinsicElementProps<K>>
+    & {
         as: K;
     };
 
 export type FocusScopeCustomComponentProps<
-    C extends ReactComponentConstructor<never>
-> = C extends ReactComponentConstructor<infer P>
-    ? FocusScopeBaseProps &
-          SafeProps<P> & {
-              as: C;
-          }
+    C extends ReactComponentConstructor<never>,
+> = C extends ReactComponentConstructor<infer P> ?
+        & FocusScopeBaseProps
+        & SafeProps<P>
+        & {
+            as: C;
+        }
     : never;
 
 declare function FocusScope(props: ForwardRefProps<HTMLDivElement, FocusScopeDefaultProps>): FCReturn;

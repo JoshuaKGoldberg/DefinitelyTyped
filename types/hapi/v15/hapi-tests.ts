@@ -1,22 +1,22 @@
-import Hapi = require("hapi");
+import Hapi = require('hapi');
 
 // Create a server with a host and port
 const server = new Hapi.Server();
 server.connection({
-    host: "localhost",
-    port: 8000
+    host: 'localhost',
+    port: 8000,
 });
 
 // Add plugins
 const plugin: any = {
     register(plugin: Object, options: Object, next: Function) {
         next();
-    }
+    },
 };
 
 plugin.register.attributes = {
-    name: "test",
-    version: "1.0.0"
+    name: 'test',
+    version: '1.0.0',
 };
 
 // optional options parameter
@@ -25,12 +25,12 @@ server.register({}, err => {});
 server.register({}).then((res: any) => {
     console.log(res);
 });
-server.register({}, {select: "api", routes: {prefix: "/prefix"}}).then((res: any) => {
+server.register({}, { select: 'api', routes: { prefix: '/prefix' } }).then((res: any) => {
     console.log(res);
 });
 
 // optional options.routes.vhost parameter
-server.register({}, {select: "api", routes: {prefix: "/prefix"}}, err => {});
+server.register({}, { select: 'api', routes: { prefix: '/prefix' } }, err => {});
 
 // server.pack.register(plugin, (err: Object) => {
 //   if (err) { throw err; }
@@ -45,9 +45,9 @@ function add(a: number, b: number, next: (err: any, result?: any, ttl?: number) 
     next(null, a + b);
 }
 
-server.method("sum", add); // , { cache: { expiresIn: 2000 } });
+server.method('sum', add); // , { cache: { expiresIn: 2000 } });
 
-server.methods["sum"](4, 5, (err: any, result: any) => {
+server.methods['sum'](4, 5, (err: any, result: any) => {
     console.log(result);
 });
 
@@ -59,14 +59,14 @@ function addArray(array: number[], next: (err: any, result?: any, ttl?: number) 
     next(null, sum);
 }
 
-server.method("sumObj", addArray, {
+server.method('sumObj', addArray, {
     cache: { expiresIn: 2000 },
     generateKey(array: number[]) {
         return array.join(',');
-    }
+    },
 });
 
-server.methods["sumObj"]([5, 6], (err: any, result: any) => {
+server.methods['sumObj']([5, 6], (err: any, result: any) => {
     console.log(result);
 });
 
@@ -77,7 +77,7 @@ server.route({
     handler(request: Hapi.Request, reply: Function) {
         request.log('info', { route: '/hello' }, Date.now());
         reply('hello world');
-    }
+    },
 });
 
 server.route([{
@@ -85,7 +85,7 @@ server.route([{
     path: '/hello2',
     handler(request: Hapi.Request, reply: Function) {
         reply('hello world2');
-    }
+    },
 }]);
 
 server.route([{
@@ -93,7 +93,7 @@ server.route([{
     path: '/hello3',
     handler(request: Hapi.Request, reply: Hapi.IReply) {
         reply('hello world2');
-    }
+    },
 }]);
 
 interface IHello {
@@ -105,7 +105,7 @@ server.route([{
     path: '/hello4',
     handler(request: Hapi.Request, reply: Hapi.IStrictReply<IHello>) {
         reply({ msg: 'hello world' });
-    }
+    },
 }]);
 
 // Implict handler
@@ -115,7 +115,7 @@ server.route({
     handler(request: Hapi.Request, reply: Hapi.IReply) {
         request.log('info', { route: '/hello' }, Date.now());
         reply('hello world');
-    }
+    },
 });
 
 // config.validate parameters should be optional
@@ -126,8 +126,8 @@ server.route([{
         reply('hello world2');
     },
     config: {
-        validate: {}
-    }
+        validate: {},
+    },
 }]);
 
 // Should be able to chain reply options
@@ -142,7 +142,7 @@ server.route([{
             .type('text/plain')
             .unstate('cookie_to_remove')
             .header('X-Custom', 'some-value');
-    }
+    },
 }]);
 
 // Start the server
@@ -157,7 +157,7 @@ server.start()
 // inject a request into connection
 server.inject({
     method: 'GET',
-    url: '/hello'
+    url: '/hello',
 }).then(response => {
     console.log(response.statusCode);
 });
@@ -165,7 +165,7 @@ server.inject({
 // the same but this time using callback
 server.inject({
     method: 'GET',
-    url: '/hello'
+    url: '/hello',
 }, response => {
     console.log(response.statusCode);
 });
@@ -192,7 +192,7 @@ server.stop()
 // decorate can take an optional options argument
 server.decorate('hello', 'world', () => {
 }, {
-    apply: true
+    apply: true,
 });
 
 server.decorate('hello2', 'world2', () => {

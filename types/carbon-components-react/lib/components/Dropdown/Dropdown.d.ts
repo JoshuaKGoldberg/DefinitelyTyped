@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { InternationalProps, ReactDivAttr, ForwardRefProps, FCReturn } from '../../../typings/shared';
+import { FCReturn, ForwardRefProps, InternationalProps, ReactDivAttr } from '../../../typings/shared';
 import { ListBoxProps } from '../ListBox';
 import { ListBoxMenuIconTranslationKey } from '../ListBox/ListBoxMenuIcon';
 
@@ -8,8 +8,8 @@ export interface OnChangeData<ItemType = string> {
 }
 
 export interface DropdownProps<ItemType = string>
-    extends Omit<ReactDivAttr, 'id' | 'onChange'>,
-        InternationalProps<ListBoxMenuIconTranslationKey> {
+    extends Omit<ReactDivAttr, 'id' | 'onChange'>, InternationalProps<ListBoxMenuIconTranslationKey>
+{
     ariaLabel?: string | undefined;
     direction?: 'bottom' | 'top' | undefined;
     disabled?: boolean | undefined;

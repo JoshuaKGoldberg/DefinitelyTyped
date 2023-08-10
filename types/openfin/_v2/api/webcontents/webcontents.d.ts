@@ -1,8 +1,8 @@
-import { EmitterBase } from '../base';
 import { Identity } from '../../identity';
 import Transport from '../../transport/transport';
+import { EmitterBase } from '../base';
 import { WebContentsEventMapping } from '../events/webcontents';
-import { PrintOptions, FindInPageOptions, PrinterInfo, Area } from '../window/window';
+import { Area, FindInPageOptions, PrinterInfo, PrintOptions } from '../window/window';
 declare type ImageFormat = 'bmp' | 'jpg' | 'png';
 export interface CapturePageOptions {
     area?: Area | undefined;

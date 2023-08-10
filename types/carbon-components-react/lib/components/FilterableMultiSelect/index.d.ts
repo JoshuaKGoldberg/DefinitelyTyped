@@ -1,2 +1,2 @@
-export * from "../MultiSelect/FilterableMultiSelect";
-export { default } from "../MultiSelect/FilterableMultiSelect";
+export * from '../MultiSelect/FilterableMultiSelect';
+export { default } from '../MultiSelect/FilterableMultiSelect';

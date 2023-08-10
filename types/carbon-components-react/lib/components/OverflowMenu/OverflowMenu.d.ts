@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {
     Direction,
+    ForwardRefReturn,
     MenuOffsetData,
     ReactAttr,
     ReactButtonAttr,
-    ForwardRefReturn,
     VerticalDirection,
 } from '../../../typings/shared';
 import { MenuProps } from '../Menu/Menu';

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import {
     AccordionItem,
     AspectRatio,
     Button,
+    ButtonRenderIconRenderProps,
     Checkbox,
     CodeSnippet,
     CodeSnippetType,
@@ -12,13 +12,19 @@ import {
     DataTableCustomRenderProps,
     DataTableHeader,
     DataTableRow,
+    DataTableSkeleton,
     DatePickerInput,
     Dropdown,
+    FileUploader,
+    FileUploaderDropContainer,
+    FileUploaderItem,
     HeaderContainer,
     HeaderMenu,
     HeaderMenuItem,
-    FileUploader,
+    InlineLoading,
     Link,
+    Modal,
+    MultiSelect,
     NumberInput,
     NumberInputOnChangeDataVariant,
     NumberInputOnChangeDefaultVariant,
@@ -26,48 +32,42 @@ import {
     NumberInputOnClickDefaultVariant,
     NumberInputOnClickInputVariant,
     Row,
-    SecondaryButton,
-    Slider,
-    Tab,
-    Table,
-    TableBatchActions,
-    TableHeader,
-    TableRow,
-    Tag,
-    TileGroup,
-    Tooltip,
-    TooltipDefinition,
-    TextArea,
-    TextInput,
-    FileUploaderDropContainer,
-    FileUploaderItem,
-    MultiSelect,
-    Tabs,
     Search,
+    SecondaryButton,
     SideNav,
     SideNavItem,
     SideNavItems,
-    StructuredListWrapper,
-    StructuredListHead,
+    Slider,
     StructuredListBody,
-    StructuredListRow,
-    StructuredListInput,
     StructuredListCell,
+    StructuredListHead,
+    StructuredListInput,
+    StructuredListRow,
     StructuredListSkeleton,
-    ButtonRenderIconRenderProps,
-    Modal,
-    InlineLoading,
-    DataTableSkeleton,
+    StructuredListWrapper,
+    Tab,
+    Table,
+    TableBatchActions,
     TableCell,
+    TableHeader,
+    TableRow,
+    Tabs,
+    Tag,
+    TextArea,
+    TextInput,
+    TileGroup,
+    Tooltip,
+    TooltipDefinition,
     unstable_Heading as UnstableHeading,
     unstable_Section as UnstableSection,
 } from 'carbon-components-react';
-import { Dialog } from 'carbon-components-react/lib/components/Dialog';
-import UIShellLink from 'carbon-components-react/lib/components/UIShell/Link';
-import { Popover, PopoverContent } from 'carbon-components-react/lib/components/Popover';
-import { LayoutDirection } from 'carbon-components-react/lib/components/Layout';
-import { Text } from 'carbon-components-react/lib/components/Text';
 import ComboBox from 'carbon-components-react/lib/components/ComboBox';
+import { Dialog } from 'carbon-components-react/lib/components/Dialog';
+import { LayoutDirection } from 'carbon-components-react/lib/components/Layout';
+import { Popover, PopoverContent } from 'carbon-components-react/lib/components/Popover';
+import { Text } from 'carbon-components-react/lib/components/Text';
+import UIShellLink from 'carbon-components-react/lib/components/UIShell/Link';
+import * as React from 'react';
 
 // test components for "as" props
 interface TestCompProps {
@@ -89,18 +89,18 @@ const TestComp2 = (props: TestCompProps) => <div />;
 
 // AccordionItem
 const titleNode = (
-    <h2 className="TitleClass">
-        <img src="some_image.png" alt="Something" />A heading
+    <h2 className='TitleClass'>
+        <img src='some_image.png' alt='Something' />A heading
     </h2>
 );
 const accordionItemOne = (
-    <AccordionItem title={titleNode} className="extra-class">
+    <AccordionItem title={titleNode} className='extra-class'>
         Lorem ipsum.
     </AccordionItem>
 );
 const accordionTitle = 'Hello World!';
 const accordionItemTwo = (
-    <AccordionItem title={accordionTitle} className="extra-class">
+    <AccordionItem title={accordionTitle} className='extra-class'>
         Lorem ipsum.
     </AccordionItem>
 );
@@ -114,18 +114,18 @@ const accordionItemTwo = (
     );
 
     const aspectRatioT1 = (
-        <AspectRatio onClick={evt => void evt.currentTarget} data-testid="test">
+        <AspectRatio onClick={evt => void evt.currentTarget} data-testid='test'>
             Default
         </AspectRatio>
     );
     const aspectRatioT2 = (
         // @ts-expect-error
-        <AspectRatio onClick={evt => void evt.currentTarget} data-testid="test" unknownProp="error">
+        <AspectRatio onClick={evt => void evt.currentTarget} data-testid='test' unknownProp='error'>
             Default
         </AspectRatio>
     );
     const aspectRatioIntrinsicT1 = (
-        <AspectRatio as="section" onClick={e => {}}>
+        <AspectRatio as='section' onClick={e => {}}>
             IntrinsicElement
         </AspectRatio>
     );
@@ -147,7 +147,7 @@ const accordionItemTwo = (
 //
 {
     const buttonDefaultT1 = (
-        <Button onClick={event => event.preventDefault()} data-testid="btn">
+        <Button onClick={event => event.preventDefault()} data-testid='btn'>
             Basic Button
         </Button>
     );
@@ -156,13 +156,13 @@ const accordionItemTwo = (
     const SimpleButtonIcon = () => <div />;
     const buttonDefaultT2 = (
         <Button
-            kind="danger"
+            kind='danger'
             onClick={event => {
                 event.preventDefault();
             }}
             renderIcon={SimpleButtonIcon}
             ref={buttonRef}
-            type="reset"
+            type='reset'
         >
             Reset
         </Button>
@@ -170,7 +170,7 @@ const accordionItemTwo = (
 
     const buttonDefaultT3 = (
         // @ts-expect-error
-        <Button unknownProp="error">Submit</Button>
+        <Button unknownProp='error'>Submit</Button>
     );
 
     const buttonIconT1 = <Button renderIcon={SimpleButtonIcon}>With Render Icon</Button>;
@@ -186,7 +186,7 @@ const accordionItemTwo = (
 
     const anchorRef = React.useRef<HTMLAnchorElement>(null);
     const buttonAnchorT1 = (
-        <Button href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank" ref={anchorRef}>
+        <Button href='https://github.com/DefinitelyTyped/DefinitelyTyped' target='_blank' ref={anchorRef}>
             Anchor Link
         </Button>
     );
@@ -194,8 +194,8 @@ const accordionItemTwo = (
     const spanRef = React.useRef<HTMLSpanElement>(null);
     const buttonIntrinsicT1 = (
         <Button
-            as="span"
-            kind="danger"
+            as='span'
+            kind='danger'
             onClick={event => {
                 event.preventDefault();
             }}
@@ -208,14 +208,14 @@ const accordionItemTwo = (
     const ButtonCustomRenderComp1: React.FC<{ someProp: number; anotherProp?: string | undefined }> = () => <div />;
 
     const buttonCustomRenderT1 = (
-        <Button as={ButtonCustomRenderComp1} kind="danger" someProp={5} anotherProp="test">
+        <Button as={ButtonCustomRenderComp1} kind='danger' someProp={5} anotherProp='test'>
             Custom Render
         </Button>
     );
 
     const buttonCustomRenderT2 = (
         // @ts-expect-error
-        <Button as={ButtonCustomRenderComp1} kind="danger" someProp={5} anotherProp="test" unknownProp={1}>
+        <Button as={ButtonCustomRenderComp1} kind='danger' someProp={5} anotherProp='test' unknownProp={1}>
             Custom Render
         </Button>
     );
@@ -226,7 +226,7 @@ const accordionItemTwo = (
 //
 const secondaryButtonT1 = <SecondaryButton onClick={event => event.preventDefault()}>Secondary</SecondaryButton>;
 const secondaryButtonT2 = (
-    <SecondaryButton as="span" onClick={event => event.preventDefault()}>
+    <SecondaryButton as='span' onClick={event => event.preventDefault()}>
         Secondary
     </SecondaryButton>
 );
@@ -240,13 +240,13 @@ const secondaryButtonT3 = (
 
 let codeSnippetType: CodeSnippetType = 'inline';
 const inlineCodeSnippet = (
-    <CodeSnippet type="inline" onClick={e => e.preventDefault()} copyText="copy text">
+    <CodeSnippet type='inline' onClick={e => e.preventDefault()} copyText='copy text'>
         code
     </CodeSnippet>
 );
 const multiCodeSnippet = (
     <CodeSnippet
-        type="multi"
+        type='multi'
         maxCollapsedNumberOfRows={10}
         minExpandedNumberOfRows={3}
         onBlur={e => e.preventDefault()}
@@ -261,7 +261,7 @@ const codeSnippetTypeIsVariable = (
 );
 const codeSnippetNodes = (
     <CodeSnippet
-        type="multi"
+        type='multi'
         maxCollapsedNumberOfRows={10}
         minExpandedNumberOfRows={3}
         onBlur={e => e.preventDefault()}
@@ -405,9 +405,7 @@ const t4 = (
             ));
             data.rows.map(row => (
                 <TableRow {...data.getRowProps({ row })}>
-                    {row.cells.map(cell => (
-                        <TableCell key={cell.id}>{cell.value}</TableCell>
-                    ))}
+                    {row.cells.map(cell => <TableCell key={cell.id}>{cell.value}</TableCell>)}
                 </TableRow>
             ));
             let rowProps = data.getRowProps({ row: rowData1, extra1: 'qwerty', ...rowData1 });
@@ -478,7 +476,11 @@ const t5 = (
                         <DataTable.TableToolbarMenu
                             tabIndex={renderProps.getBatchActionProps().shouldShowBatchActions ? -1 : 0}
                         >
-                            <DataTable.TableToolbarAction primaryFocus onClick={() => alert('Alert 1')}>
+                            <DataTable.TableToolbarAction
+                                primaryFocus
+                                onClick={() =>
+                                    alert('Alert 1')}
+                            >
                                 Action 1
                             </DataTable.TableToolbarAction>
                             <DataTable.TableToolbarAction onClick={() => alert('Alert 2')}>
@@ -491,8 +493,8 @@ const t5 = (
                         <Button
                             tabIndex={renderProps.getBatchActionProps().shouldShowBatchActions ? -1 : 0}
                             onClick={() => {}}
-                            size="small"
-                            kind="primary"
+                            size='small'
+                            kind='primary'
                         >
                             Add new
                         </Button>
@@ -556,12 +558,15 @@ const t5 = (
         <UnstableSection onClick={(e: React.MouseEvent<HTMLElement>) => e.preventDefault()}>Text</UnstableSection>
     );
     const sectionIntrinsicT1 = (
-        <UnstableSection as="div" onClick={(e: React.MouseEvent<HTMLDivElement>) => e.preventDefault()}>
+        <UnstableSection
+            as='div'
+            onClick={(e: React.MouseEvent<HTMLDivElement>) => e.preventDefault()}
+        >
             Text
         </UnstableSection>
     );
     const sectionIntrinsicT2 = (
-        <UnstableSection as="fieldset" disabled form="test">
+        <UnstableSection as='fieldset' disabled form='test'>
             Text
         </UnstableSection>
     );
@@ -576,10 +581,10 @@ const t5 = (
 {
     const uisContentT1 = (
         <Content
-            className="test-class"
-            data-testid="main-content"
+            className='test-class'
+            data-testid='main-content'
             onClick={evt => void evt.currentTarget}
-            title="test-title"
+            title='test-title'
         >
             <div />
         </Content>
@@ -587,10 +592,10 @@ const t5 = (
 
     const uisContentIntrinsicT1 = (
         <Content
-            tagName="fieldset"
-            className="test-class"
-            data-testid="fieldset-content"
-            form="form"
+            tagName='fieldset'
+            className='test-class'
+            data-testid='fieldset-content'
+            form='form'
             onClick={evt => void evt.currentTarget}
         >
             <div />
@@ -600,8 +605,8 @@ const t5 = (
 
 // UIShell - Link
 {
-    const uisLinkT1 = <UIShellLink href="#test">Test</UIShellLink>;
-    const uisLinkT2 = <UIShellLink<React.ImgHTMLAttributes<HTMLElement>> element="img" src="src" />;
+    const uisLinkT1 = <UIShellLink href='#test'>Test</UIShellLink>;
+    const uisLinkT2 = <UIShellLink<React.ImgHTMLAttributes<HTMLElement>> element='img' src='src' />;
     const uisLinkT3 = (
         <UIShellLink<TestCompProps> element={TestComp1} someProp={2}>
             ASDF
@@ -621,7 +626,7 @@ const t5 = (
     const TestComp3 = (props: TestCompPropsOverwrite) => <div />;
 
     const uisLinkT5 = (
-        <UIShellLink<TestCompPropsOverwrite> element={TestComp3} someProp="asdf">
+        <UIShellLink<TestCompPropsOverwrite> element={TestComp3} someProp='asdf'>
             Testing Overwrite
         </UIShellLink>
     );
@@ -652,7 +657,7 @@ const uisHeaderContainerCompRenderNotMatchingOptionalProps = <HeaderContainer re
 // UI Shell - HeaderMenu
 {
     const uisHeaderMenuAnonRender = (
-        <HeaderMenu menuLinkName="test" renderMenuContent={() => <div />} ref={element => {}}>
+        <HeaderMenu menuLinkName='test' renderMenuContent={() => <div />} ref={element => {}}>
             <div />
         </HeaderMenu>
     );
@@ -660,7 +665,7 @@ const uisHeaderContainerCompRenderNotMatchingOptionalProps = <HeaderContainer re
     const testRef = React.useRef<HTMLElement | null>();
     const uisHeaderRefT1 = (
         // @ts-expect-error
-        <HeaderMenu menuLinkName="test" renderMenuContent={() => <div />} ref={testRef}>
+        <HeaderMenu menuLinkName='test' renderMenuContent={() => <div />} ref={testRef}>
             <div />
         </HeaderMenu>
     );
@@ -671,11 +676,11 @@ const uisHeaderContainerCompRenderNotMatchingOptionalProps = <HeaderContainer re
  *  will be used.
  */
 const uisHeaderMenuCompRenderNotMatchingRequiredProps = (
-    <HeaderMenu menuLinkName="test" renderMenuContent={HeaderCompRender1} />
+    <HeaderMenu menuLinkName='test' renderMenuContent={HeaderCompRender1} />
 );
 
 const uisHeaderMenuCompRenderNotMatchingOptionalProps = (
-    <HeaderMenu menuLinkName="test" renderMenuContent={HeaderCompRender2} />
+    <HeaderMenu menuLinkName='test' renderMenuContent={HeaderCompRender2} />
 );
 
 //
@@ -686,7 +691,7 @@ const uisHeaderMenuItemRequiredChild = <HeaderMenuItem>Required Child</HeaderMen
 
 // DatePickerInput
 const datePickerInputWithHideLabel = (
-    <DatePickerInput hideLabel={true} id="my-date-picker-input" labelText="my-label-text" />
+    <DatePickerInput hideLabel={true} id='my-date-picker-input' labelText='my-label-text' />
 );
 
 // Dropdown
@@ -702,11 +707,11 @@ const dropdownItems = [
 ];
 const dropdownItemCanBeElement = (
     <Dropdown
-        id="my-dropdown"
+        id='my-dropdown'
         items={dropdownItems}
-        label="label"
-        titleText=""
-        ariaLabel=""
+        label='label'
+        titleText=''
+        ariaLabel=''
         selectedItem={dropdownItems[1]}
         itemToElement={item => (
             <div>
@@ -725,12 +730,12 @@ const dropdownItemCanBeElement = (
     const LinkIcon2: React.FC<{ someProp?: number | undefined }> = props => <div />;
 
     const linkT1 = (
-        <Link href="href" inline renderIcon={LinkIcon1}>
+        <Link href='href' inline renderIcon={LinkIcon1}>
             Text
         </Link>
     );
     const linkT2 = (
-        <Link href="href" renderIcon={LinkIcon2}>
+        <Link href='href' renderIcon={LinkIcon2}>
             Text
         </Link>
     );
@@ -740,7 +745,7 @@ const dropdownItemCanBeElement = (
 {
     const popoverContentRef = React.useRef<HTMLSpanElement | null>(null);
     const popoverT1 = (
-        <Popover open align="bottom" caret>
+        <Popover open align='bottom' caret>
             <PopoverContent ref={popoverContentRef} onClick={evt => {}}>
                 Content
             </PopoverContent>
@@ -754,7 +759,7 @@ let value: string | number = 5;
 let name = 'old name';
 const tileGroupA = (
     <TileGroup
-        name="my-tile-group-name"
+        name='my-tile-group-name'
         onChange={(newVal, newName, e) => {
             value = newVal;
             name = newName;
@@ -764,15 +769,15 @@ const tileGroupA = (
 
 // Tooltip
 const tooltipHasAlign = (
-    <Tooltip triggerText="tooltip" align="end">
+    <Tooltip triggerText='tooltip' align='end'>
         tooltip
     </Tooltip>
 );
 
 // TooltipDefinition
-const tooltipDefHasAlign = <TooltipDefinition tooltipText="my text" align="end" />;
+const tooltipDefHasAlign = <TooltipDefinition tooltipText='my text' align='end' />;
 
-const tooltipDefHasTriggerClassName = <TooltipDefinition tooltipText="my text" triggerClassName="my-class-name" />;
+const tooltipDefHasTriggerClassName = <TooltipDefinition tooltipText='my text' triggerClassName='my-class-name' />;
 
 // Tabs
 {
@@ -802,7 +807,7 @@ const tooltipDefHasTriggerClassName = <TooltipDefinition tooltipText="my text" t
         </Tabs>
     );
 
-    const tabCanBeDisabled = <Tab href="#" disabled />;
+    const tabCanBeDisabled = <Tab href='#' disabled />;
 }
 
 // Slider
@@ -821,11 +826,11 @@ const SliderHasOnChange = <Slider max={0} min={10} value={5} onChange={newValue 
             <StructuredListBody>
                 <StructuredListRow>
                     <StructuredListCell>Cell 1</StructuredListCell>
-                    <StructuredListInput value="val"></StructuredListInput>
+                    <StructuredListInput value='val'></StructuredListInput>
                 </StructuredListRow>
-                <StructuredListRow label htmlFor="id">
+                <StructuredListRow label htmlFor='id'>
                     <StructuredListCell>Cell 1</StructuredListCell>
-                    <StructuredListInput value="val"></StructuredListInput>
+                    <StructuredListInput value='val'></StructuredListInput>
                 </StructuredListRow>
             </StructuredListBody>
         </StructuredListWrapper>
@@ -839,7 +844,7 @@ const SliderHasOnChange = <Slider max={0} min={10} value={5} onChange={newValue 
     const ChipTagFilterUndef = <Tag />;
 
     const TagCustomComp1: React.FC = () => <div />;
-    const ChipTagIcon1 = <Tag renderIcon={TagCustomComp1} size="sm" />;
+    const ChipTagIcon1 = <Tag renderIcon={TagCustomComp1} size='sm' />;
 
     const TagCustomComp2: React.FC<{ optionalProp?: string | undefined }> = () => <div />;
     const ChipTagIcon2 = <Tag renderIcon={TagCustomComp2} />;
@@ -854,106 +859,110 @@ const SliderHasOnChange = <Slider max={0} min={10} value={5} onChange={newValue 
 
 // Text
 {
-    const TextT1 = <Text dir="ltr">Text</Text>;
+    const TextT1 = <Text dir='ltr'>Text</Text>;
 
     const TextT2 = (
         // @ts-expect-error
-        <Text dir="auto" unknownProp={3}>
+        <Text dir='auto' unknownProp={3}>
             Text
         </Text>
     );
 
     const TextIntrinsicT1 = (
-        <Text as="li" dir="auto" onClick={(evt: React.MouseEvent<HTMLLIElement>) => {}} value="test">
+        <Text as='li' dir='auto' onClick={(evt: React.MouseEvent<HTMLLIElement>) => {}} value='test'>
             Text
         </Text>
     );
 
     const TextCustomCompT1 = (
-        <Text as={TestComp2} dir="rtl" someProp={5}>
+        <Text as={TestComp2} dir='rtl' someProp={5}>
             Text
         </Text>
     );
 
     const TextCustomCompT2 = (
         // @ts-expect-error
-        <Text as={TestComp2} dir="rtl" someProp={5} unknownProp={false}>
+        <Text as={TestComp2} dir='rtl' someProp={5} unknownProp={false}>
             Text
         </Text>
     );
 }
 
 // TextArea
-const textAreaWithDefaultRef = <TextArea labelText="" />;
+const textAreaWithDefaultRef = <TextArea labelText='' />;
 
 const HtmlTextAreaRef = React.createRef<HTMLTextAreaElement>();
-const textAreaWithRef = <TextArea ref={HtmlTextAreaRef} labelText="" />;
+const textAreaWithRef = <TextArea ref={HtmlTextAreaRef} labelText='' />;
 
 // TextInput
-const inputWithoutRef = <TextInput id="my-id" labelText="" />;
+const inputWithoutRef = <TextInput id='my-id' labelText='' />;
 
-const passwordInputWithoutRef = <TextInput.PasswordInput id="my-id" labelText="" />;
+const passwordInputWithoutRef = <TextInput.PasswordInput id='my-id' labelText='' />;
 
-const controlledPasswordInputWithoutRef = <TextInput.ControlledPasswordInput id="my-id" labelText="" />;
+const controlledPasswordInputWithoutRef = <TextInput.ControlledPasswordInput id='my-id' labelText='' />;
 
 const inputRef = React.createRef<HTMLInputElement>();
-const inputWithRef = <TextInput id="my-id" ref={inputRef} labelText="" />;
+const inputWithRef = <TextInput id='my-id' ref={inputRef} labelText='' />;
 
-const passwordInputWithRef = <TextInput.PasswordInput id="my-id" ref={inputRef} labelText="" />;
+const passwordInputWithRef = <TextInput.PasswordInput id='my-id' ref={inputRef} labelText='' />;
 
-const controlledPasswordInputWithRef = <TextInput.ControlledPasswordInput id="my-id" ref={inputRef} labelText="" />;
+const controlledPasswordInputWithRef = <TextInput.ControlledPasswordInput id='my-id' ref={inputRef} labelText='' />;
 
 // NumberInput
 {
-    const numberInput = <NumberInput id="my-id" value={12} />;
-    const emptyNumberInput = <NumberInput id="empty-id" value="" />;
+    const numberInput = <NumberInput id='my-id' value={12} />;
+    const emptyNumberInput = <NumberInput id='empty-id' value='' />;
 
     const numberInputOnChangeT1 = (
         <NumberInput
-            id="id"
+            id='id'
             onChange={((evt, { direction, value }) => evt.preventDefault()) as NumberInputOnChangeDataVariant}
-            value=""
+            value=''
         />
     );
 
     const numberInputOnChangeT2 = (
         <NumberInput
-            id="id"
+            id='id'
             onChange={(evt, direction, value) => {
                 if (direction === 'down') {
                     evt.preventDefault();
                 }
             }}
-            value=""
+            value=''
         />
     );
 
     const numberInputOnChangeT3 = (
         <NumberInput
-            id="id"
+            id='id'
             onChange={((evt, direction, value) => evt.preventDefault()) as NumberInputOnChangeDefaultVariant}
-            value=""
+            value=''
         />
     );
 
     const numberInputOnClickT1 = (
         <NumberInput
-            id="id"
+            id='id'
             onClick={((evt, direction, value) => evt.preventDefault()) as NumberInputOnClickDefaultVariant}
-            value=""
+            value=''
         />
     );
 
     const numberInputOnClickT2 = (
         <NumberInput
-            id="id"
+            id='id'
             onClick={((evt, { direction, value }) => evt.preventDefault()) as NumberInputOnClickDataVariant}
-            value=""
+            value=''
         />
     );
 
     const numberInputOnClickT3 = (
-        <NumberInput id="id" onClick={(evt => evt.currentTarget.checked) as NumberInputOnClickInputVariant} value="" />
+        <NumberInput
+            id='id'
+            onClick={(evt => evt.currentTarget.checked) as NumberInputOnClickInputVariant}
+            value=''
+        />
     );
 }
 
@@ -963,36 +972,36 @@ const fileUploaderHasOnChange = <FileUploader onChange={e => {}} />;
 const fileUploaderDropContainer = (
     <FileUploaderDropContainer
         accept={['image/jpeg', 'image/png']}
-        labelText="Drag and drop files here or click to upload"
+        labelText='Drag and drop files here or click to upload'
         multiple
-        name=""
+        name=''
         onAddFiles={(event, content) => {}}
         onChange={event => {}}
-        role=""
+        role=''
         tabIndex={0}
     />
 );
 
 const fileUploaderItem = (
     <FileUploaderItem
-        errorBody="500kb max file size. Select a new file and try again."
-        errorSubject="File size exceeds limit"
-        iconDescription="Clear file"
-        name="README.md"
+        errorBody='500kb max file size. Select a new file and try again.'
+        errorSubject='File size exceeds limit'
+        iconDescription='Clear file'
+        name='README.md'
         onDelete={(event, content) => {}}
-        size="field"
-        status="edit"
-        uuid="id1"
+        size='field'
+        status='edit'
+        uuid='id1'
     />
 );
 
 const multiSelect = (
     <MultiSelect
-        id="clusters"
+        id='clusters'
         initialSelectedItems={['one']}
         items={['one', 'two']}
         light
-        titleText="Choose an item"
+        titleText='Choose an item'
         itemToString={item => item || ''}
         onChange={({ selectedItems }) => {}}
     />
@@ -1008,7 +1017,7 @@ const MultiSelectItemComp: React.FC<MultiSelectObjType1> = () => <div />;
 
 const multiSelectObjs = (
     <MultiSelect<MultiSelectObjType1>
-        id="disks"
+        id='disks'
         items={[
             { id: 1, name: 'one' },
             { id: 2, name: 'two', someBoolProp: true },
@@ -1021,7 +1030,7 @@ const multiSelectObjs = (
 
 const multiSelectObjsBadCustomComp = (
     <MultiSelect<MultiSelectObjType1>
-        id="disks"
+        id='disks'
         items={[
             { id: 1, name: 'one' },
             { id: 2, name: 'two', someBoolProp: true },
@@ -1033,12 +1042,12 @@ const multiSelectObjsBadCustomComp = (
 
 const multiSelectFilterable = (
     <MultiSelect.Filterable
-        id="clusters"
+        id='clusters'
         initialSelectedItems={['one']}
         items={['one', 'two']}
         light
-        placeholder="Filter"
-        titleText="Choose an item"
+        placeholder='Filter'
+        titleText='Choose an item'
         itemToString={item => item || ''}
         onChange={({ selectedItems }) => {}}
     />
@@ -1057,12 +1066,12 @@ const multiSelectFilterableObjs: MultiSelectObjType1[] = [
 ];
 const multiSelectFilterableObj = (
     <MultiSelect.Filterable<MultiSelectObjType1>
-        id="clusters"
+        id='clusters'
         initialSelectedItems={[multiSelectFilterableObjs[0]]}
         items={multiSelectFilterableObjs}
         light
-        placeholder="Filter"
-        titleText="Choose an item"
+        placeholder='Filter'
+        titleText='Choose an item'
         itemToString={item => (item && item.name ? item.name : '')}
         onChange={({ selectedItems }) => {}}
     />
@@ -1072,7 +1081,7 @@ const multiSelectFilterableObj = (
 {
     // Grid: Row
     const rowDefaultT1 = (
-        <Row onClick={event => {}} data-testid="5" title="test-title">
+        <Row onClick={event => {}} data-testid='5' title='test-title'>
             Contents
         </Row>
     );
@@ -1085,13 +1094,13 @@ const multiSelectFilterableObj = (
 
     const rowDefaultT3 = (
         // @ts-expect-error
-        <Row onClick={event => {}} data-testid="5" title="test-title" unknownProp={true}>
+        <Row onClick={event => {}} data-testid='5' title='test-title' unknownProp={true}>
             Contents
         </Row>
     );
 
     const rowCustomIntrinsic = (
-        <Row as="li" onClick={(event: React.MouseEvent<HTMLLIElement>) => {}}>
+        <Row as='li' onClick={(event: React.MouseEvent<HTMLLIElement>) => {}}>
             Contents
         </Row>
     );
@@ -1104,7 +1113,7 @@ const multiSelectFilterableObj = (
 
     const rowCustomComp2 = (
         // @ts-expect-error
-        <Row as={TestComp1} someProp={5} unknownProp="test">
+        <Row as={TestComp1} someProp={5} unknownProp='test'>
             Content
         </Row>
     );
@@ -1123,7 +1132,7 @@ const multiSelectFilterableObj = (
     );
 
     const columnCustomIntrinsic = (
-        <Column as="li" onClick={(event: React.MouseEvent<HTMLLIElement>) => {}}>
+        <Column as='li' onClick={(event: React.MouseEvent<HTMLLIElement>) => {}}>
             Contents
         </Column>
     );
@@ -1163,7 +1172,7 @@ const dataTableSkeletonBasic = <DataTableSkeleton />;
 // LayoutDirection
 {
     const layoutDirectionDefaultT1 = (
-        <LayoutDirection onClick={event => void event.currentTarget} data-testid="test-id" tabIndex={0}>
+        <LayoutDirection onClick={event => void event.currentTarget} data-testid='test-id' tabIndex={0}>
             Contents
         </LayoutDirection>
     );
@@ -1176,11 +1185,11 @@ const dataTableSkeletonBasic = <DataTableSkeleton />;
 
     const layoutDirectionDefaultT3 = (
         // @ts-expect-error
-        <LayoutDirection unknownProp="true">Contents</LayoutDirection>
+        <LayoutDirection unknownProp='true'>Contents</LayoutDirection>
     );
 
     const layoutDirectionCustomIntrinsic = (
-        <LayoutDirection as="li" onClick={(event: React.MouseEvent<HTMLLIElement>) => {}} value="value">
+        <LayoutDirection as='li' onClick={(event: React.MouseEvent<HTMLLIElement>) => {}} value='value'>
             Contents
         </LayoutDirection>
     );
@@ -1203,11 +1212,11 @@ const dataTableSkeletonBasic = <DataTableSkeleton />;
 // Search
 //
 {
-    const searchT1 = <Search labelText="Search..." renderIcon={<svg></svg>} />;
+    const searchT1 = <Search labelText='Search...' renderIcon={<svg></svg>} />;
 
     const searchT2 = (
         // @ts-expect-error
-        <Search labelText="Search..." renderIcon={TestComp2} />
+        <Search labelText='Search...' renderIcon={TestComp2} />
     );
 }
 
@@ -1215,16 +1224,16 @@ const dataTableSkeletonBasic = <DataTableSkeleton />;
 // Dialog
 //
 {
-    const dialogDefaultT1 = <Dialog aria-labelledby="test">children</Dialog>;
+    const dialogDefaultT1 = <Dialog aria-labelledby='test'>children</Dialog>;
 
     const dialogIntrinsicT1 = (
-        <Dialog as="fieldset" aria-labelledby="test" data-testid="test" disabled form="form" onDismiss={() => {}}>
+        <Dialog as='fieldset' aria-labelledby='test' data-testid='test' disabled form='form' onDismiss={() => {}}>
             children
         </Dialog>
     );
 
     const dialogCustomCompT1 = (
-        <Dialog as={TestComp2} aria-labelledby="test" onDismiss={() => {}} someProp={5} data-testid="test">
+        <Dialog as={TestComp2} aria-labelledby='test' onDismiss={() => {}} someProp={5} data-testid='test'>
             Test
         </Dialog>
     );
@@ -1233,11 +1242,11 @@ const dataTableSkeletonBasic = <DataTableSkeleton />;
         // @ts-expect-error
         <Dialog
             as={TestComp2}
-            aria-labelledby="test"
+            aria-labelledby='test'
             onDismiss={() => {}}
             someProp={5}
-            unknownProp="a"
-            data-testid="test"
+            unknownProp='a'
+            data-testid='test'
         >
             Test
         </Dialog>
@@ -1249,17 +1258,17 @@ const dataTableSkeletonBasic = <DataTableSkeleton />;
 //
 {
     const inputRef = React.createRef<HTMLInputElement>();
-    <Checkbox id="" labelText="" ref={inputRef} />;
+    <Checkbox id='' labelText='' ref={inputRef} />;
 }
 
 //
 // ComboBox
 //
 {
-    const comboBoxWithMandatoryProps = <ComboBox id="cbId" items={['item 1', 'item 2', 'item 3']} />;
+    const comboBoxWithMandatoryProps = <ComboBox id='cbId' items={['item 1', 'item 2', 'item 3']} />;
     const comboBoxWithOptionalProps = (
         <ComboBox
-            id="someId"
+            id='someId'
             light={false}
             items={['item 1', 'item 2', 'item 3']}
             selectedItem={'item 1'}

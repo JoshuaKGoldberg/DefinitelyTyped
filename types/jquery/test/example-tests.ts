@@ -221,9 +221,13 @@ function examples() {
     }
 
     function animate_7() {
-        $('p').animate({
-            opacity: 'show',
-        }, 'slow', 'easein');
+        $('p').animate(
+            {
+                opacity: 'show',
+            },
+            'slow',
+            'easein',
+        );
     }
 
     function animate_8() {
@@ -245,13 +249,18 @@ function examples() {
     }
 
     function animate_10() {
-        $('p').animate({
-            height: 200,
-            width: 400,
-            opacity: 0.5,
-        }, 1000, 'linear', function() {
-            alert('all done');
-        });
+        $('p').animate(
+            {
+                height: 200,
+                width: 400,
+                opacity: 0.5,
+            },
+            1000,
+            'linear',
+            function() {
+                alert('all done');
+            },
+        );
     }
 
     function animated_0() {
@@ -286,9 +295,11 @@ function examples() {
         $('input')
             .change(function() {
                 var $input = $(this);
-                $('p').html('.attr( \'checked\' ): <b>' + $input.attr('checked') + '</b><br>' +
-                    '.prop( \'checked\' ): <b>' + $input.prop('checked') + '</b><br>' +
-                    '.is( \':checked\' ): <b>' + $input.is(':checked') + '</b>');
+                $('p').html(
+                    '.attr( \'checked\' ): <b>' + $input.attr('checked') + '</b><br>'
+                        + '.prop( \'checked\' ): <b>' + $input.prop('checked') + '</b><br>'
+                        + '.is( \':checked\' ): <b>' + $input.is(':checked') + '</b>',
+                );
             })
             .change();
     }
@@ -943,8 +954,10 @@ function examples() {
     function css_0() {
         $('div').click(function() {
             var color = $(this).css('background-color');
-            $('#result').html('That div is <span style=\'color:' +
-                color + ';\'>' + color + '</span>.');
+            $('#result').html(
+                'That div is <span style=\'color:'
+                    + color + ';\'>' + color + '</span>.',
+            );
         });
     }
 
@@ -953,7 +966,10 @@ function examples() {
             var html = ['The clicked div has the following styles:'];
 
             var styleProps = $(this).css([
-                'width', 'height', 'color', 'background-color',
+                'width',
+                'height',
+                'color',
+                'background-color',
             ]);
             $.each(styleProps, function(prop, value) {
                 html.push(prop + ': ' + value);
@@ -1025,18 +1041,18 @@ function examples() {
             var value;
 
             switch ($('button').index(this)) {
-                case 0 :
+                case 0:
                     value = $('div').data('blah');
                     break;
-                case 1 :
+                case 1:
                     $('div').data('blah', 'hello');
                     value = 'Stored!';
                     break;
-                case 2 :
+                case 2:
                     $('div').data('blah', 86);
                     value = 'Stored!';
                     break;
-                case 3 :
+                case 3:
                     $('div').removeData('blah');
                     value = 'Removed!';
                     break;
@@ -1051,18 +1067,18 @@ function examples() {
             var value;
 
             switch ($('button').index(this)) {
-                case 0 :
+                case 0:
                     value = $('div').data('blah');
                     break;
-                case 1 :
+                case 1:
                     $('div').data('blah', 'hello');
                     value = 'Stored!';
                     break;
-                case 2 :
+                case 2:
                     $('div').data('blah', 86);
                     value = 'Stored!';
                     break;
-                case 3 :
+                case 3:
                     $('div').removeData('blah');
                     value = 'Removed!';
                     break;
@@ -1126,7 +1142,7 @@ function examples() {
 
         // Add handlers to be called when dfd is resolved
         dfd
-        // .done() can take any number of functions or arrays of functions
+            // .done() can take any number of functions or arrays of functions
             .done([fn1, fn2], fn3, [fn2, fn1])
             // We can chain done methods, too
             .done(function(n) {
@@ -1250,7 +1266,8 @@ function examples() {
         $.get('test.php').then(
             function() {
                 alert('$.get succeeded');
-            }, function() {
+            },
+            function() {
                 alert('$.get failed!');
             },
         );
@@ -1833,7 +1850,7 @@ function examples() {
         var horiz = $('#path').width()! - 20,
             vert = $('#path').height()! - 20;
 
-        var btns: { [key: string]: () => void; } = {
+        var btns: { [key: string]: () => void } = {
             bstt: function() {
                 $('div.box').stop(true, true);
             },
@@ -1980,9 +1997,11 @@ function examples() {
     }
 
     function has_1() {
-        $('ul').append('<li>' +
-            ( $('ul').has('li').length ? 'Yes' : 'No' ) +
-            '</li>');
+        $('ul').append(
+            '<li>'
+                + ($('ul').has('li').length ? 'Yes' : 'No')
+                + '</li>',
+        );
         $('ul').has('li').addClass('full');
     }
 
@@ -2182,8 +2201,10 @@ function examples() {
     function input_0() {
         var allInputs = $(':input');
         var formChildren = $('form > *');
-        $('#messages').text('Found ' + allInputs.length + ' inputs and the form has ' +
-            formChildren.length + ' children.');
+        $('#messages').text(
+            'Found ' + allInputs.length + ' inputs and the form has '
+                + formChildren.length + ' children.',
+        );
 
         $('form').submit(function(event) {
             event.preventDefault();
@@ -2356,18 +2377,18 @@ function examples() {
             var value,
                 div = $('div')[0];
             switch ($('button').index(this)) {
-                case 0 :
+                case 0:
                     value = jQuery.data(div, 'blah');
                     break;
-                case 1 :
+                case 1:
                     jQuery.data(div, 'blah', 'hello');
                     value = 'Stored!';
                     break;
-                case 2 :
+                case 2:
                     jQuery.data(div, 'blah', 86);
                     value = 'Stored!';
                     break;
-                case 3 :
+                case 3:
                     jQuery.removeData(div, 'blah');
                     value = 'Removed!';
                     break;
@@ -2397,7 +2418,7 @@ function examples() {
             $('#' + val).text('Mine is ' + val + '.');
 
             // Will stop running after "three"
-            return ( val !== 'three' );
+            return (val !== 'three');
         });
 
         jQuery.each(obj, function(i, val) {
@@ -2425,7 +2446,7 @@ function examples() {
             $('#' + val).text('Mine is ' + val + '.');
 
             // Will stop running after "three"
-            return ( val !== 'three' );
+            return (val !== 'three');
         });
 
         jQuery.each(obj, function(i, val) {
@@ -2558,7 +2579,7 @@ function examples() {
     }
 
     function jQuery_get_6() {
-      $.get('test.php', { name: 'John', time: '2pm' }, 'json');
+        $.get('test.php', { name: 'John', time: '2pm' }, 'json');
     }
 
     function jQuery_get_json_0() {
@@ -2631,7 +2652,7 @@ function examples() {
         $('div').text(arr.join(', '));
 
         arr = jQuery.grep(arr, function(n, i) {
-            return ( n !== 5 && i > 4 );
+            return (n !== 5 && i > 4);
         });
         $('p').text(arr.join(', '));
 
@@ -2775,7 +2796,7 @@ function examples() {
         $('div').text(arr.join(', '));
 
         arr = jQuery.map(arr, function(n, i) {
-            return ( n.toUpperCase() + i );
+            return (n.toUpperCase() + i);
         });
         $('p').text(arr.join(', '));
 
@@ -3021,7 +3042,7 @@ function examples() {
     }
 
     function jQuery_post_8() {
-      $.post('test.php', { name: 'John', time: '2pm' }, 'json');
+        $.post('test.php', { name: 'John', time: '2pm' }, 'json');
     }
 
     function jQuery_proxy_0() {
@@ -3054,15 +3075,12 @@ function examples() {
 
         // attach click handlers to #test
         $('#test')
-        // this === "zombie"; handler unbound after first click
+            // this === "zombie"; handler unbound after first click
             .on('click', $.proxy(me.test, me))
-
             // this === "person"
             .on('click', youClick)
-
             // this === "zombie"
             .on('click', $.proxy(you.test, me))
-
             // this === "<button> element"
             .on('click', you.test);
     }
@@ -3086,22 +3104,17 @@ function examples() {
             // Note that event comes *after* one and two
             test: function(one: typeof you, two: typeof they, event: JQuery.TriggeredEvent<HTMLElement>) {
                 $('#log')
-
-                // `one` maps to `you`, the 1st additional
-                // argument in the $.proxy function call
+                    // `one` maps to `you`, the 1st additional
+                    // argument in the $.proxy function call
                     .append('<h3>Hello ' + one.type + ':</h3>')
-
                     // The `this` keyword refers to `me`
                     // (the 2nd, context, argument of $.proxy)
                     .append('I am a ' + this.type + ', ')
-
                     // `two` maps to `they`, the 2nd additional
                     // argument in the $.proxy function call
                     .append('and they are ' + two.type + '.<br>')
-
                     // The event type is "click"
                     .append('Thanks for ' + event.type + 'ing.')
-
                     // The clicked element is `event.target`,
                     // and its type is "button"
                     .append('the ' + (event.target as HTMLButtonElement).type + '.');
@@ -3411,8 +3424,10 @@ function examples() {
             .click(function() {
                 $(document.body).append($('<div>'));
                 var n = $('div').length;
-                $('span').text('There are ' + n + ' divs.' +
-                    'Click to add more.');
+                $('span').text(
+                    'There are ' + n + ' divs.'
+                        + 'Click to add more.',
+                );
             })
             // Trigger the click to start
             .trigger('click');
@@ -3452,11 +3467,13 @@ function examples() {
 
     function map_0() {
         $('p')
-            .append($('input').map(function() {
-                return $(this).val() as string;
-            })
-                .get()
-                .join(', '));
+            .append(
+                $('input').map(function() {
+                    return $(this).val() as string;
+                })
+                    .get()
+                    .join(', '),
+            );
     }
 
     function map_1() {
@@ -3790,8 +3807,10 @@ function examples() {
         $('*', document.body).click(function(event) {
             var offset = $(this).offset()!;
             event.stopPropagation();
-            $('#result').text(this.tagName +
-                ' coords ( ' + offset.left + ', ' + offset.top + ' )');
+            $('#result').text(
+                this.tagName
+                    + ' coords ( ' + offset.left + ', ' + offset.top + ' )',
+            );
         });
     }
 
@@ -3810,7 +3829,7 @@ function examples() {
     }
 
     function on_1() {
-        function myHandler(event: JQuery.TriggeredEvent<HTMLElement, { foo: string; }>) {
+        function myHandler(event: JQuery.TriggeredEvent<HTMLElement, { foo: string }>) {
             alert(event.data.foo);
         }
 
@@ -3866,9 +3885,11 @@ function examples() {
         $('div.test').on({
             click: function() {
                 $(this).toggleClass('active');
-            }, mouseenter: function() {
+            },
+            mouseenter: function() {
                 $(this).addClass('inside');
-            }, mouseleave: function() {
+            },
+            mouseleave: function() {
                 $(this).removeClass('inside');
             },
         });
@@ -3907,8 +3928,10 @@ function examples() {
                 borderStyle: 'inset',
                 cursor: 'auto',
             });
-            $('p').text('Div at index #' + index + ' clicked.' +
-                ' That\'s ' + (++n) + ' total clicks.');
+            $('p').text(
+                'Div at index #' + index + ' clicked.'
+                    + ' That\'s ' + (++n) + ' total clicks.',
+            );
         });
     }
 
@@ -3936,8 +3959,9 @@ function examples() {
     function outer_height_0() {
         var p = $('p:first');
         $('p:last').text(
-            'outerHeight:' + p.outerHeight() +
-            ' , outerHeight( true ):' + p.outerHeight(true));
+            'outerHeight:' + p.outerHeight()
+                + ' , outerHeight( true ):' + p.outerHeight(true),
+        );
     }
 
     function outer_height_1() {
@@ -3951,8 +3975,9 @@ function examples() {
     function outer_width_0() {
         var p = $('p:first');
         $('p:last').text(
-            'outerWidth:' + p.outerWidth() +
-            ' , outerWidth( true ):' + p.outerWidth(true));
+            'outerWidth:' + p.outerWidth()
+                + ' , outerWidth( true ):' + p.outerWidth(true),
+        );
     }
 
     function outer_width_1() {
@@ -4095,7 +4120,7 @@ function examples() {
             $('p').append('Started...');
 
             $('div').each(function(i) {
-                $(this).fadeIn().fadeOut(1000 * ( i + 1 ));
+                $(this).fadeIn().fadeOut(1000 * (i + 1));
             });
 
             $('div').promise().done(function() {
@@ -4122,9 +4147,10 @@ function examples() {
         $('input').change(function() {
             var $input = $(this);
             $('p').html(
-                '.attr( "checked" ): <b>' + $input.attr('checked') + '</b><br>' +
-                '.prop( "checked" ): <b>' + $input.prop('checked') + '</b><br>' +
-                '.is( ":checked" ): <b>' + $input.is(':checked') + '</b>');
+                '.attr( "checked" ): <b>' + $input.attr('checked') + '</b><br>'
+                    + '.prop( "checked" ): <b>' + $input.prop('checked') + '</b><br>'
+                    + '.is( ":checked" ): <b>' + $input.is(':checked') + '</b>',
+            );
         }).change();
     }
 
@@ -4471,8 +4497,8 @@ function examples() {
         function colorEm() {
             var $div = $('div');
             var start = Math.floor(Math.random() * $div.length);
-            var end: number | undefined = Math.floor(Math.random() * ( $div.length - start )) +
-                start + 1;
+            var end: number | undefined = Math.floor(Math.random() * ($div.length - start))
+                + start + 1;
             if (end === $div.length) {
                 end = undefined;
             }
@@ -4482,9 +4508,11 @@ function examples() {
             } else {
                 $div.slice(start).css('background', 'yellow');
             }
-            $('span').text('$( \'div\' ).slice( ' + start +
-                (end ? ', ' + end : '') +
-                ').css( \'background\', \'yellow\' );');
+            $('span').text(
+                '$( \'div\' ).slice( ' + start
+                    + (end ? ', ' + end : '')
+                    + ').css( \'background\', \'yellow\' );',
+            );
         }
 
         $('button').click(colorEm);
@@ -4722,7 +4750,7 @@ function examples() {
         var divs = $('div.wrap').children();
         var appendClass = function() {
             divs.append(function() {
-                return '<div>' + ( this.className || 'none' ) + '</div>';
+                return '<div>' + (this.className || 'none') + '</div>';
             });
         };
 
@@ -4910,8 +4938,10 @@ function examples() {
             var multipleValues = $('#multiple').val() as string[] || [];
             // When using jQuery 3:
             // var multipleValues = $( "#multiple" ).val();
-            $('p').html('<b>Single:</b> ' + singleValues +
-                ' <b>Multiple:</b> ' + multipleValues.join(', '));
+            $('p').html(
+                '<b>Single:</b> ' + singleValues
+                    + ' <b>Multiple:</b> ' + multipleValues.join(', '),
+            );
         }
 
         $('select').change(displayVals);

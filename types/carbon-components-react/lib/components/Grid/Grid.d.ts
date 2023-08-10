@@ -1,5 +1,11 @@
-import * as React from "react";
-import { ReactAttr, ReactDivAttr, JSXIntrinsicElementProps, FCReturn, ReactComponentConstructor } from "../../../typings/shared";
+import * as React from 'react';
+import {
+    FCReturn,
+    JSXIntrinsicElementProps,
+    ReactAttr,
+    ReactComponentConstructor,
+    ReactDivAttr,
+} from '../../../typings/shared';
 
 // These are the props not spread onto the component supplied from the "as" prop (aliased BaseComponent in the src).
 interface GridBaseIsolatedProps {
@@ -15,23 +21,28 @@ interface GridBaseProps extends GridBaseIsolatedProps {
     className?: ReactAttr['className'] | undefined;
 }
 
-export type GridDefaultProps = GridBaseProps &
-    ReactDivAttr & {
+export type GridDefaultProps =
+    & GridBaseProps
+    & ReactDivAttr
+    & {
         as?: undefined;
     };
 
-export type GridIntrinsicProps<K extends keyof JSX.IntrinsicElements> = GridBaseProps &
-    SafeProps<JSXIntrinsicElementProps<K>> & {
+export type GridIntrinsicProps<K extends keyof JSX.IntrinsicElements> =
+    & GridBaseProps
+    & SafeProps<JSXIntrinsicElementProps<K>>
+    & {
         as: K;
     };
 
 export type GridCustomComponentProps<
-    C extends ReactComponentConstructor<never>
-> = C extends ReactComponentConstructor<infer P>
-    ? GridBaseProps &
-          SafeProps<P> & {
-              as: C;
-          }
+    C extends ReactComponentConstructor<never>,
+> = C extends ReactComponentConstructor<infer P> ?
+        & GridBaseProps
+        & SafeProps<P>
+        & {
+            as: C;
+        }
     : never;
 
 declare function Grid(props: GridDefaultProps): FCReturn;

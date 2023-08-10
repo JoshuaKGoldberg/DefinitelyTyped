@@ -1,4 +1,4 @@
-import { ReactDivAttr, FCProps, FCReturn } from '../../../typings/shared';
+import { FCProps, FCReturn, ReactDivAttr } from '../../../typings/shared';
 import { CopyProps } from '../Copy';
 
 interface SharedProps {

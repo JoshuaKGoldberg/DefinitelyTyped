@@ -31,30 +31,30 @@ interface TypedArray<T extends numeric = numeric> extends Readonly<ArrayBufferVi
 
 interface TypedArrayConstructor {
     readonly prototype: TypedArrayPrototype;
-    new (...args: unknown[]): TypedArrayPrototype;
+    new(...args: unknown[]): TypedArrayPrototype;
 
     /**
      * Returns a new typed array from a set of elements.
      * @param items A set of elements to include in the new typed array object.
      */
-    of(this: new (length: number) => Int8Array, ...items: number[]): Int8Array;
-    of(this: new (length: number) => Uint8Array, ...items: number[]): Uint8Array;
-    of(this: new (length: number) => Uint8ClampedArray, ...items: number[]): Uint8ClampedArray;
+    of(this: new(length: number) => Int8Array, ...items: number[]): Int8Array;
+    of(this: new(length: number) => Uint8Array, ...items: number[]): Uint8Array;
+    of(this: new(length: number) => Uint8ClampedArray, ...items: number[]): Uint8ClampedArray;
 
-    of(this: new (length: number) => Int16Array, ...items: number[]): Int16Array;
-    of(this: new (length: number) => Uint16Array, ...items: number[]): Uint16Array;
+    of(this: new(length: number) => Int16Array, ...items: number[]): Int16Array;
+    of(this: new(length: number) => Uint16Array, ...items: number[]): Uint16Array;
 
-    of(this: new (length: number) => Int32Array, ...items: number[]): Int32Array;
-    of(this: new (length: number) => Uint32Array, ...items: number[]): Uint32Array;
+    of(this: new(length: number) => Int32Array, ...items: number[]): Int32Array;
+    of(this: new(length: number) => Uint32Array, ...items: number[]): Uint32Array;
 
     // For whatever reason, `array-type` considers `bigint` a non-simple type:
     // tslint:disable: array-type
-    of(this: new (length: number) => BigInt64Array, ...items: bigint[]): BigInt64Array;
-    of(this: new (length: number) => BigUint64Array, ...items: bigint[]): BigUint64Array;
+    of(this: new(length: number) => BigInt64Array, ...items: bigint[]): BigInt64Array;
+    of(this: new(length: number) => BigUint64Array, ...items: bigint[]): BigUint64Array;
     // tslint:enable: array-type
 
-    of(this: new (length: number) => Float32Array, ...items: number[]): Float32Array;
-    of(this: new (length: number) => Float64Array, ...items: number[]): Float64Array;
+    of(this: new(length: number) => Float32Array, ...items: number[]): Float32Array;
+    of(this: new(length: number) => Float64Array, ...items: number[]): Float64Array;
 
     /**
      * Creates a new typed array from an array-like or iterable object.
@@ -62,92 +62,92 @@ interface TypedArrayConstructor {
      * @param mapfn A mapping function to call on every element of the source object.
      * @param thisArg Value of 'this' used to invoke the mapfn.
      */
-    from(this: new (length: number) => Int8Array, source: Iterable<number> | ArrayLike<number>): Int8Array;
+    from(this: new(length: number) => Int8Array, source: Iterable<number> | ArrayLike<number>): Int8Array;
     from<U>(
-        this: new (length: number) => Int8Array,
+        this: new(length: number) => Int8Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Int8Array;
 
-    from(this: new (length: number) => Uint8Array, source: Iterable<number> | ArrayLike<number>): Uint8Array;
+    from(this: new(length: number) => Uint8Array, source: Iterable<number> | ArrayLike<number>): Uint8Array;
     from<U>(
-        this: new (length: number) => Uint8Array,
+        this: new(length: number) => Uint8Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Uint8Array;
 
     from(
-        this: new (length: number) => Uint8ClampedArray,
+        this: new(length: number) => Uint8ClampedArray,
         source: Iterable<number> | ArrayLike<number>,
     ): Uint8ClampedArray;
     from<U>(
-        this: new (length: number) => Uint8ClampedArray,
+        this: new(length: number) => Uint8ClampedArray,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Uint8ClampedArray;
 
-    from(this: new (length: number) => Int16Array, source: Iterable<number> | ArrayLike<number>): Int16Array;
+    from(this: new(length: number) => Int16Array, source: Iterable<number> | ArrayLike<number>): Int16Array;
     from<U>(
-        this: new (length: number) => Int16Array,
+        this: new(length: number) => Int16Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Int16Array;
 
-    from(this: new (length: number) => Uint16Array, source: Iterable<number> | ArrayLike<number>): Uint16Array;
+    from(this: new(length: number) => Uint16Array, source: Iterable<number> | ArrayLike<number>): Uint16Array;
     from<U>(
-        this: new (length: number) => Uint16Array,
+        this: new(length: number) => Uint16Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Uint16Array;
 
-    from(this: new (length: number) => Int32Array, source: Iterable<number> | ArrayLike<number>): Int32Array;
+    from(this: new(length: number) => Int32Array, source: Iterable<number> | ArrayLike<number>): Int32Array;
     from<U>(
-        this: new (length: number) => Int32Array,
+        this: new(length: number) => Int32Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Int32Array;
 
-    from(this: new (length: number) => Uint32Array, source: Iterable<number> | ArrayLike<number>): Uint32Array;
+    from(this: new(length: number) => Uint32Array, source: Iterable<number> | ArrayLike<number>): Uint32Array;
     from<U>(
-        this: new (length: number) => Uint32Array,
+        this: new(length: number) => Uint32Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Uint32Array;
 
-    from(this: new (length: number) => BigInt64Array, source: Iterable<bigint> | ArrayLike<bigint>): BigInt64Array;
+    from(this: new(length: number) => BigInt64Array, source: Iterable<bigint> | ArrayLike<bigint>): BigInt64Array;
     from<U>(
-        this: new (length: number) => BigInt64Array,
+        this: new(length: number) => BigInt64Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => bigint,
         thisArg?: unknown,
     ): BigInt64Array;
 
-    from(this: new (length: number) => BigUint64Array, source: Iterable<bigint> | ArrayLike<bigint>): BigUint64Array;
+    from(this: new(length: number) => BigUint64Array, source: Iterable<bigint> | ArrayLike<bigint>): BigUint64Array;
     from<U>(
-        this: new (length: number) => BigUint64Array,
+        this: new(length: number) => BigUint64Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => bigint,
         thisArg?: unknown,
     ): BigUint64Array;
 
-    from(this: new (length: number) => Float32Array, source: Iterable<number> | ArrayLike<number>): Float32Array;
+    from(this: new(length: number) => Float32Array, source: Iterable<number> | ArrayLike<number>): Float32Array;
     from<U>(
-        this: new (length: number) => Float32Array,
+        this: new(length: number) => Float32Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
     ): Float32Array;
 
-    from(this: new (length: number) => Float64Array, source: Iterable<number> | ArrayLike<number>): Float64Array;
+    from(this: new(length: number) => Float64Array, source: Iterable<number> | ArrayLike<number>): Float64Array;
     from<U>(
-        this: new (length: number) => Float64Array,
+        this: new(length: number) => Float64Array,
         source: Iterable<U> | ArrayLike<U>,
         mapfn: (v: U, k: number) => number,
         thisArg?: unknown,
@@ -1036,9 +1036,13 @@ declare namespace GetIntrinsic {
         '%SetPrototype.values%': typeof Set.prototype.values;
         '%SetPrototype.keys%': typeof Set.prototype.keys;
         '%SharedArrayBuffer.prototype%': SharedArrayBuffer;
-        '%SharedArrayBuffer.prototype.byteLength%': (this: SharedArrayBuffer) => typeof SharedArrayBuffer.prototype.byteLength;
+        '%SharedArrayBuffer.prototype.byteLength%': (
+            this: SharedArrayBuffer,
+        ) => typeof SharedArrayBuffer.prototype.byteLength;
         '%SharedArrayBuffer.prototype.slice%': typeof SharedArrayBuffer.prototype.slice;
-        '%SharedArrayBufferPrototype.byteLength%': (this: SharedArrayBuffer) => typeof SharedArrayBuffer.prototype.byteLength;
+        '%SharedArrayBufferPrototype.byteLength%': (
+            this: SharedArrayBuffer,
+        ) => typeof SharedArrayBuffer.prototype.byteLength;
         '%SharedArrayBufferPrototype.slice%': typeof SharedArrayBuffer.prototype.slice;
         '%String.prototype%': typeof String.prototype;
         '%String.prototype.length%': typeof String.prototype.length;

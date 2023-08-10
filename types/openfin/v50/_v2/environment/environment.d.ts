@@ -1,6 +1,6 @@
-import { NewConnectConfig } from '../transport/wire';
-import { Identity } from '../identity';
 import { EntityType } from '../api/frame/frame';
+import { Identity } from '../identity';
+import { NewConnectConfig } from '../transport/wire';
 export interface Environment {
     writeToken(path: string, token: string): Promise<string>;
     retrievePort(config: NewConnectConfig): Promise<number>;
@@ -13,4 +13,4 @@ export interface Environment {
     getCurrentEntityType(): EntityType;
     raiseEvent(eventName: string, eventArgs: any): void;
 }
-export declare const notImplementedEnvErrorMsg = "Not implemented in this environment";
+export declare const notImplementedEnvErrorMsg = 'Not implemented in this environment';

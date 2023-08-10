@@ -1,4 +1,4 @@
-import { RuntimeEvent, BaseEventMap } from './base';
+import { BaseEventMap, RuntimeEvent } from './base';
 export interface NotificationEvents extends BaseEventMap {
     show: RuntimeEvent<'notification', 'show'>;
     close: RuntimeEvent<'notification', 'close'>;

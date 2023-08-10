@@ -1,4 +1,4 @@
-import { IsDataDescriptor, SameValue, FromPropertyDescriptor } from 'es-abstract';
+import { FromPropertyDescriptor, IsDataDescriptor, SameValue } from 'es-abstract';
 import DefineOwnProperty = require('es-abstract/helpers/DefineOwnProperty');
 
 DefineOwnProperty(

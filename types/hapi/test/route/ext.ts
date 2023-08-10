@@ -1,10 +1,10 @@
-import { Server } from "hapi";
+import { Server } from 'hapi';
 
 const server = new Server();
 
 server.route({
     method: 'get',
-    path: "/test",
+    path: '/test',
     options: {
         ext: {
             onPreResponse: {
@@ -17,6 +17,6 @@ server.route({
                     return h.continue;
                 },
             }],
-        }
-    }
+        },
+    },
 });

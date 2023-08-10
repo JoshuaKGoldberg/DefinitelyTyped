@@ -1,10 +1,23 @@
-import { WindowEvent, BaseEventMap, ApplicationEvent } from './base';
-import { WindowAlertRequestedEvent, WindowAuthRequestedEvent, WindowEndLoadEvent, PropagatedWindowEvents, WindowPerformanceReport } from './window';
 import { Bounds } from '../../shapes';
-import { PropagatedViewEvents } from './view';
 import { ManifestInfo } from '../application/application';
+import { ApplicationEvent, BaseEventMap, WindowEvent } from './base';
+import { PropagatedViewEvents } from './view';
+import {
+    PropagatedWindowEvents,
+    WindowAlertRequestedEvent,
+    WindowAuthRequestedEvent,
+    WindowEndLoadEvent,
+    WindowPerformanceReport,
+} from './window';
 export interface CrashedEvent {
-    reason: 'normal-termination' | 'abnormal-termination' | 'killed' | 'crashed' | 'still-running' | 'launch-failed' | 'out-of-memory';
+    reason:
+        | 'normal-termination'
+        | 'abnormal-termination'
+        | 'killed'
+        | 'crashed'
+        | 'still-running'
+        | 'launch-failed'
+        | 'out-of-memory';
 }
 export interface RunRequestedEvent<Topic, Type> extends ApplicationEvent<Topic, Type> {
     userAppConfigArgs: any;
@@ -58,9 +71,12 @@ export interface PropagatedApplicationEventMapping<Topic = string, Type = string
     'window-responding': WindowEvent<Topic, Type>;
     'window-start-load': WindowEvent<Topic, Type>;
 }
-export declare type ApplicationEvents = PropagatedWindowEvents<'application'> & PropagatedViewEvents<'application'> & {
-    [Type in keyof ApplicationEventMapping]: ApplicationEventMapping<'application', Type>[Type];
-};
+export declare type ApplicationEvents =
+    & PropagatedWindowEvents<'application'>
+    & PropagatedViewEvents<'application'>
+    & {
+        [Type in keyof ApplicationEventMapping]: ApplicationEventMapping<'application', Type>[Type];
+    };
 export declare type PropagatedApplicationEvents<Topic> = {
     [Type in keyof PropagatedApplicationEventMapping]: PropagatedApplicationEventMapping<Topic, Type>[Type];
 };

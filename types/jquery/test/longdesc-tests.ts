@@ -91,8 +91,10 @@ function longdesc() {
     function ajax_complete_2() {
         $(document).ajaxComplete(function(event, xhr, settings) {
             if (settings.url === 'ajax/test.html') {
-                $('.log').text('Triggered ajaxComplete handler. The result is ' +
-                    xhr.responseText);
+                $('.log').text(
+                    'Triggered ajaxComplete handler. The result is '
+                        + xhr.responseText,
+                );
             }
         });
     }
@@ -176,21 +178,27 @@ function longdesc() {
     function ajax_success_2() {
         $(document).ajaxSuccess(function(event, xhr, settings) {
             if (settings.url == 'ajax/test.html') {
-                $('.log').text('Triggered ajaxSuccess handler. The Ajax response was: ' +
-                    xhr.responseText);
+                $('.log').text(
+                    'Triggered ajaxSuccess handler. The Ajax response was: '
+                        + xhr.responseText,
+                );
             }
         });
     }
 
     function animate_0() {
         $('#clickme').click(function() {
-            $('#book').animate({
-                opacity: 0.25,
-                left: '+=50',
-                height: 'toggle',
-            }, 5000, function() {
-                // Animation complete.
-            });
+            $('#book').animate(
+                {
+                    opacity: 0.25,
+                    left: '+=50',
+                    height: 'toggle',
+                },
+                5000,
+                function() {
+                    // Animation complete.
+                },
+            );
         });
     }
 
@@ -208,13 +216,18 @@ function longdesc() {
 
     function animate_2() {
         $('#clickme').click(function() {
-            $('#book').animate({
-                width: ['toggle', 'swing'],
-                height: ['toggle', 'swing'],
-                opacity: 'toggle',
-            }, 5000, 'linear', function() {
-                $(this).after('<div>Animation complete.</div>');
-            });
+            $('#book').animate(
+                {
+                    width: ['toggle', 'swing'],
+                    height: ['toggle', 'swing'],
+                    opacity: 'toggle',
+                },
+                5000,
+                'linear',
+                function() {
+                    $(this).after('<div>Animation complete.</div>');
+                },
+            );
         });
     }
 
@@ -329,9 +342,11 @@ function longdesc() {
     function bind_4() {
         $(document).ready(function() {
             $('#foo').bind('click', function(event) {
-                alert('The mouse cursor is at (' +
-                    event.pageX + ', ' + event.pageY +
-                    ')');
+                alert(
+                    'The mouse cursor is at ('
+                        + event.pageX + ', ' + event.pageY
+                        + ')',
+                );
             });
         });
     }
@@ -408,7 +423,7 @@ function longdesc() {
         // Original element with attached data
         var $elem = $('#elem').data('arr', [1]),
             $clone = $elem.clone(true)
-            // Deep copy to prevent data sharing
+                // Deep copy to prevent data sharing
                 .data('arr', $.extend([], $elem.data('arr')));
     }
 
@@ -538,7 +553,13 @@ function longdesc() {
         $('#foo').slideUp(300).delay(800).fadeIn(400);
     }
 
-    function delegate_0(elements: HTMLElement[], selector: string, events: string, data: any, handler: JQuery.TypeEventHandler<HTMLElement, any, any, any, string>) {
+    function delegate_0(
+        elements: HTMLElement[],
+        selector: string,
+        events: string,
+        data: any,
+        handler: JQuery.TypeEventHandler<HTMLElement, any, any, any, string>,
+    ) {
         // jQuery 1.4.3+
         $(elements).delegate(selector, events, data, handler);
         // jQuery 1.7+
@@ -968,9 +989,13 @@ function longdesc() {
                         image = new Image();
                         function done(status: number) {
                             if (image) {
-                                var statusText: JQuery.Ajax.TextStatus = ( status === 200 ) ? 'success' : 'error',
+                                var statusText: JQuery.Ajax.TextStatus = (status === 200) ? 'success' : 'error',
                                     tmp = image;
-                                image = image.onreadystatechange = image.onerror = image.onload = null;
+                                image =
+                                    image.onreadystatechange =
+                                    image.onerror =
+                                    image.onload =
+                                        null;
                                 // Error:(962, 50) TS2345:Argument of type 'string' is not assignable to parameter of type
                                 //     '"success" | "notmodified" | "nocontent" | "abort" | "timeout" | "error" | "parsererror"'.
                                 // Why can't the compiler infer this?
@@ -988,7 +1013,11 @@ function longdesc() {
                     },
                     abort: function() {
                         if (image) {
-                            image = image.onreadystatechange = image.onerror = image.onload = null;
+                            image =
+                                image.onreadystatechange =
+                                image.onerror =
+                                image.onload =
+                                    null;
                         }
                     },
                 };
@@ -1201,7 +1230,7 @@ function longdesc() {
             // First, check to see if cssHooks are supported
             if (!$.cssHooks) {
                 // If not, output an error message
-                throw( new Error('jQuery 1.4.3 or above is required for this plugin to work') );
+                throw (new Error('jQuery 1.4.3 or above is required for this plugin to work'));
             }
 
             // Wrap in a document ready call, because jQuery writes
@@ -1225,7 +1254,6 @@ function longdesc() {
             function styleSupport(prop: string) {
                 var vendorProp,
                     supportedProp,
-
                     // Capitalize first character of the prop to test vendor prefix
                     capProp = prop.charAt(0).toUpperCase() + prop.slice(1),
                     prefixes = ['Moz', 'Webkit', 'O', 'ms'],
@@ -1261,7 +1289,7 @@ function longdesc() {
     function jquery_css_hooks_2() {
         (function($) {
             if (!$.cssHooks) {
-                throw( new Error('jQuery 1.4.3+ is needed for this plugin to work') );
+                throw (new Error('jQuery 1.4.3+ is needed for this plugin to work'));
             }
 
             function styleSupport(prop: string) {
@@ -1528,48 +1556,40 @@ function longdesc() {
 
     function jquery_html_prefilter_2() {
         var panything = '[\\w\\W]*?',
-
             // Whitespace
             // https://html.spec.whatwg.org/multipage/infrastructure.html#space-character
             pspace = '[\\x20\\t\\r\\n\\f]',
-
             // End of tag name (whitespace or greater-than)
             pnameEnd = pspace.replace(']', '>]'),
-
             // Tag name (a leading letter, then almost anything)
             // https://html.spec.whatwg.org/multipage/syntax.html#tag-open-state
             // https://html.spec.whatwg.org/multipage/syntax.html#tag-name-state
             pname = '[a-z]' + pnameEnd.replace('[', '[^/\\0') + '*',
-
             // Void element (end tag prohibited)
             // https://html.spec.whatwg.org/multipage/syntax.html#void-elements
-            pvoidName = '(?:area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|' +
-                'source|track|wbr)(?=' + pnameEnd + ')',
-
+            pvoidName = '(?:area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|'
+                + 'source|track|wbr)(?=' + pnameEnd + ')',
             // Attributes (double-quoted value, single-quoted value, unquoted value, or no value)
             // https://html.spec.whatwg.org/multipage/syntax.html#attributes-2
-            pattrs = '(?:' + pspace + '+[^\\0-\\x20\\x7f-\\x9f="\'/>]+(?:' + pspace + '*=' + pspace +
-                '*(?:"' + panything + '"|\'' + panything + '\'|' +
-                pnameEnd.replace('[', '[^') + '*(?!/)' +
-                ')|))*' + pspace + '*',
-
+            pattrs = '(?:' + pspace + '+[^\\0-\\x20\\x7f-\\x9f="\'/>]+(?:' + pspace + '*=' + pspace
+                + '*(?:"' + panything + '"|\'' + panything + '\'|'
+                + pnameEnd.replace('[', '[^') + '*(?!/)'
+                + ')|))*' + pspace + '*',
             // Trailing content of a close tag
             pcloseTail = '(?:' + pspace + panything + '|)',
-
             rspecialHtml = new RegExp(
                 // Non-void element that self-closes: $1–$5
-                '(<)(?!' + pvoidName + ')(' + pname + ')(' + pattrs + ')(\\/)(>)|' +
-                // No-innerHTML container (element, comment, or CDATA): $6
-                '(<(script|style|textarea)' + pattrs + '>' + panything + '<\\/\\7' + pcloseTail + '>|' +
-                '<!--' + panything + '--)',
+                '(<)(?!' + pvoidName + ')(' + pname + ')(' + pattrs + ')(\\/)(>)|'
+                    // No-innerHTML container (element, comment, or CDATA): $6
+                    + '(<(script|style|textarea)' + pattrs + '>' + panything + '<\\/\\7' + pcloseTail + '>|'
+                    + '<!--' + panything + '--)',
                 'gi',
             ),
-
             // "<"; element name; attributes; ">"; "<"; "/"; element name; ">"; no-innerHTML container
             pspecialReplacement = '$1$2$3$5$1$4$2$5$6';
 
         $.htmlPrefilter = function(html) {
-            return ( html + '' ).replace(rspecialHtml, pspecialReplacement);
+            return (html + '').replace(rspecialHtml, pspecialReplacement);
         };
     }
 
@@ -1685,7 +1705,7 @@ function longdesc() {
     }
 
     function jquery_when_1() {
-        $.when({ testing: 123 }).done(function(x: { testing: number; }) {
+        $.when({ testing: 123 }).done(function(x: { testing: number }) {
             alert(x.testing); // Alerts "123"
         });
     }
@@ -2016,7 +2036,7 @@ function longdesc() {
     }
 
     function on_3() {
-        function greet(event: JQuery.TriggeredEvent<HTMLElement, { name: string; }>) {
+        function greet(event: JQuery.TriggeredEvent<HTMLElement, { name: string }>) {
             alert('Hello ' + event.data.name);
         }
 
@@ -2347,7 +2367,7 @@ function longdesc() {
 
     function text_1() {
         $('ul li').text(function(index) {
-            return 'item number ' + ( index + 1 );
+            return 'item number ' + (index + 1);
         });
     }
 

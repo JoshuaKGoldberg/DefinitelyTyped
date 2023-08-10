@@ -1,5 +1,5 @@
-import { BaseEventMap, WindowEvent } from './base';
 import { CrashedEvent } from './application';
+import { BaseEventMap, WindowEvent } from './base';
 import { WindowNavigationRejectedEvent } from './window';
 export interface WindowResourceLoadFailedEvent<Topic, Type> extends WindowEvent<Topic, Type> {
     errorCode: number;

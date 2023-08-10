@@ -31,7 +31,7 @@ declare const RemovedKeysActual: Exclude<keyof ES2017Operations, keyof ES2018Ope
 export declare const RemovedKeys: RemovedKeys;
 
 // ## Long types:
-//#region RemovedKeys
+// #region RemovedKeys
 export type RemovedKeys =
     | 'EnumerableOwnProperties'
     | 'IsPropertyDescriptor'
@@ -39,9 +39,9 @@ export type RemovedKeys =
     | 'EvaluateDirectCall'
     | 'ToString Applied to the Number Type'
     | 'AsyncFunctionAwait';
-//#endregion
+// #endregion
 
-//#region AddedKeys
+// #region AddedKeys
 export type AllAddedKeys =
     | AddedKeys
     | 'CopyDataProperties'
@@ -79,9 +79,9 @@ export type AddedKeys =
     | 'UnicodeEscape'
     | 'UnicodeMatchProperty'
     | 'UnicodeMatchPropertyValue';
-//#endregion
+// #endregion
 
-//#region ExpectedKeys
+// #region ExpectedKeys
 type ExpectedKeys =
     | 'abs'
     | 'Abstract Equality Comparison'
@@ -429,4 +429,4 @@ type ExpectedKeys =
     | 'WeekDay'
     | 'WordCharacters'
     | 'YearFromTime';
-//#endregion
+// #endregion

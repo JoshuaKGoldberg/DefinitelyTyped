@@ -1,6 +1,6 @@
-import { ChannelBase } from './channel';
-import Transport from '../../../transport/transport';
 import { ProviderIdentity } from '../../../shapes/Identity';
+import Transport from '../../../transport/transport';
+import { ChannelBase } from './channel';
 declare type DisconnectionListener = (providerIdentity: ProviderIdentity) => any;
 interface RoutingInfo extends ProviderIdentity {
     endpointId: string;

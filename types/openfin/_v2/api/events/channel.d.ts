@@ -1,4 +1,4 @@
-import { BaseEventMap, ApplicationEvent } from './base';
+import { ApplicationEvent, BaseEventMap } from './base';
 export interface ChannelEvent<Type> extends ApplicationEvent<'channel', Type> {
     channelName: string;
     channelId: string;

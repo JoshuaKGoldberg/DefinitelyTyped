@@ -31,11 +31,11 @@ declare const RemovedKeysActual: Exclude<keyof ES2015Operations, keyof ES2016Ope
 export declare const RemovedKeys: RemovedKeys;
 
 // ## Long types:
-//#region RemovedKeys
+// #region RemovedKeys
 export type RemovedKeys = never;
-//#endregion
+// #endregion
 
-//#region AddedKeys
+// #region AddedKeys
 export type AllAddedKeys =
     | AddedKeys
     | 'IterableToArrayLike'
@@ -199,9 +199,9 @@ export type AddedKeys =
     | 'UTF16Decode'
     | 'UTF16Encoding'
     | 'ValidateTypedArray';
-//#endregion
+// #endregion
 
-//#region ExpectedKeys
+// #region ExpectedKeys
 type ExpectedKeys =
     | 'IsPropertyDescriptor'
     | 'abs'
@@ -474,4 +474,4 @@ type ExpectedKeys =
     | 'ValidateTypedArray'
     | 'WeekDay'
     | 'YearFromTime';
-//#endregion
+// #endregion

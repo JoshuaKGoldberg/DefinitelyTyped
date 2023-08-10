@@ -3,8 +3,8 @@
 import path = require('path');
 import fs = require('fs');
 
-import { BASE_INTRINSICS, LEGACY_ALIASES, BASE_INTRINSIC_DATA } from './intrinsics-data';
 import { IntrinsicsWriter } from '../../get-intrinsic/scripts/intrinsics-writer';
+import { BASE_INTRINSIC_DATA, BASE_INTRINSICS, LEGACY_ALIASES } from './intrinsics-data';
 
 const OUT_FILE_PATH = path.resolve(__dirname, '..', 'GetIntrinsic.d.ts');
 const GENERATED_MARKER = '\n// ------------------------ >8 ------------------------';

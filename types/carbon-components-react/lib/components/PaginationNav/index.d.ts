@@ -1,2 +1,2 @@
-export * from "./PaginationNav";
-export { default } from "./PaginationNav";
+export * from './PaginationNav';
+export { default } from './PaginationNav';

@@ -31,11 +31,11 @@ declare const RemovedKeysActual: Exclude<keyof ES2018Operations, keyof ES2019Ope
 export declare const RemovedKeys: RemovedKeys;
 
 // ## Long types:
-//#region RemovedKeys
+// #region RemovedKeys
 export type RemovedKeys = 'ModuleDeclarationEnvironmentSetup' | 'ModuleExecution' | 'WakeWaiter';
-//#endregion
+// #endregion
 
-//#region AddedKeys
+// #region AddedKeys
 export type AllAddedKeys = AddedKeys | 'AddEntriesFromIterable' | 'FlattenIntoArray' | 'TrimString';
 
 export type AddedKeys =
@@ -44,9 +44,9 @@ export type AddedKeys =
     | 'InitializeEnvironment'
     | 'NotifyWaiter'
     | 'SynchronizeEventSet';
-//#endregion
+// #endregion
 
-//#region ExpectedKeys
+// #region ExpectedKeys
 type ExpectedKeys =
     | 'abs'
     | 'Abstract Equality Comparison'
@@ -399,4 +399,4 @@ type ExpectedKeys =
     | 'WeekDay'
     | 'WordCharacters'
     | 'YearFromTime';
-//#endregion
+// #endregion
