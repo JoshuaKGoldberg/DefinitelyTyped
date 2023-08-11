@@ -1,0 +1,12 @@
+{
+    "plugins": [
+      "https://plugins.dprint.dev/typescript-0.85.1.wasm"
+    ],
+    "indentWidth": 4,
+    "lineWidth": 120,
+    "typescript": {
+      "arrowFunction.useParentheses": "preferNone",
+      "quoteStyle": "alwaysSingle",
+      "trailingCommas": "onlyMultiLine"
+    }
+  }
